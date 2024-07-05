@@ -1,0 +1,10 @@
+if not varexist setPKmode
+    setvar setPKmode 0
+endif
+if varexist setPKmode and setPKmode = 0
+    setvar setPKmode 1
+    warmode on
+else
+    setvar setPKmode 0
+    warmode off
+endif

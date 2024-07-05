@@ -1,0 +1,48 @@
+if paralyzed
+    hotkey 'Play Script: Defense\TriggerTrappedPouch'
+endif
+cast 'Lightning'
+waitfortarget 
+target lasttarget 
+if varexist setPKmode and setPKmode = 0
+    cooldown Lightning
+else
+    overhead 'var setPKmode not set'
+endif
+wait 900
+cast 'Fireball'
+waitfortarget 
+target lasttarget 
+if varexist setPKmode and setPKmode = 1
+    cooldown ThirdCircle
+elseif varexist setPKmode and setPKmode = 0
+    cooldown Fireball
+else
+    overhead 'var setPKmode not set'
+endif
+wait 500
+cast 'Harm'
+waitfortarget 
+target lasttarget 
+if varexist setPKmode and setPKmode = 1
+    cooldown SecondCircle
+elseif varexist setPKmode and setPKmode = 0
+    cooldown Harm
+else
+    overhead 'var setPKmode not set'
+endif
+wait 500
+cast 'Magic Arrow'
+waitfortarget 
+target lasttarget 
+if varexist setPKmode and setPKmode = 1
+    cooldown FirstCircle
+elseif varexist setPKmode and setPKmode = 0
+    cooldown MagicArrow
+else
+    overhead 'var setPKmode not set'
+endif
+wait 500
+if diffmana > 50
+    hotkey 'Play Script: Defense\Eat Shroom'
+endif

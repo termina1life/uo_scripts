@@ -1,0 +1,36 @@
+say 'All Guard'
+if varexist setPKmode and setPKmode = 0
+    if followers < 4
+    cast 'Earth Elemental'
+        wait 3000
+        say 'All Guard'
+        if findtype 'mushroom' as m and diffmana > 50
+            dclick m
+            wait 2000
+        endif
+    else 
+        say 'All Guard'
+    endif
+    if followers < 4
+        cast 'Earth Elemental'
+        wait 3000
+        say 'All Guard'
+        if findtype 'mushroom' as m and diffmana > 50
+            dclick m
+            wait 2000
+        endif
+    else 
+        say 'All Guard'
+    endif
+    if followers = 4
+        cast 'Summ. Creature'
+        wait 3000
+        say 'All Guard'
+    else 
+        say 'All Guard'
+    endif
+    wait 500
+    skill 'spiritspeak'
+else
+    overhead 'In PK mode'
+endif

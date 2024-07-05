@@ -1,0 +1,9 @@
+if findtype 'Purple Potion' backpack as x
+    dclick x
+    waitfortarget 
+    target lasttarget 
+    
+    cooldown PurplePotion
+else
+    overhead 'No Purple Potions'
+endif

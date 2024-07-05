@@ -1,0 +1,10 @@
+if paralyzed
+    hotkey 'Play Script: Defense\TriggerTrappedPouch'
+endif
+cast 'Energy Bolt'
+waitfortarget 
+target lasttarget 
+wait 500
+if diffmana > 50
+    hotkey 'Play Script: Defense\Eat Shroom'
+endif

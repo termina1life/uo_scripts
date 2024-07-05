@@ -1,0 +1,14 @@
+if paralyzed
+    hotkey 'Play Script: Defense\TriggerTrappedPouch'
+endif
+    cast 'Telekinesis'
+    waitfortarget 
+    target lasttarget 
+    
+    cooldown Telekinesis
+    
+    dress rearm
+    
+if diffmana > 50
+    hotkey 'Play Script: Defense\Eat Shroom'
+endif
