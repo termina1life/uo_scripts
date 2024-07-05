@@ -322,6 +322,7 @@ for 4
                 if keeper in description
                     overhead "Keeping: {{description}}" 77
                     lift item
+                    wait 300
                     drop good_items_store_container
                     wait 500
                     ignore item
@@ -333,6 +334,7 @@ for 4
                     if quality in description
                         overhead "Good Shit!!!: {{description}}" 77
                         lift item
+                        wait 300
                         drop good_items_store_container
                         wait 500
                         ignore item
@@ -363,6 +365,7 @@ for 4
                         waitfortarget
                         wait 200
                         dclick item
+                        wait 100
                         ignore item
                     else
                         overhead 'No Tool Kit Found, not recycling'

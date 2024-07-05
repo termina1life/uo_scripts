@@ -1,0 +1,73 @@
+###########################
+# - Supported Healing Types
+#   - healing
+#   - magery
+#   - spirit speak
+#   - chivalry
+# - Dangerous wieght is consided to be 3 less than max wieght
+#   - If max weight is reached and you have a ruinbook in your pack, it will recall you out
+# - GTFO Range is set to 50 by default (requires tracking skill)
+#    - You can override this by creating a global varible under script options in razor.
+# - Life Support is on by default, this will heal you if you are below max hp, poisoned, or bleeding
+#   - You can override this comment out the lines below for life support 
+
+sysmsg  "starting master"
+#This enables life_support by default
+#You can override this by commenting out the lines below
+if not varexist  lifeSupport_enabled
+    #@setvar lifeSupport_enabled
+    @setvar lifeSupport_disabled '1'
+endif
+#This is where you stop commenting for life_support removal
+
+#Start Red Tracking Options
+if not varexist redTracking_enabled
+    #@setvar redTracking_enabled
+    @setvar redTracking_disabled '1'
+    #@setvar GTFO_enabled
+    @setvar GTFO_disabled '1'
+    @setvar GTFOrange '50'
+endif
+# End Red Tracking Options
+while not dead  
+    if rhandempty 
+        script 'harvesting\mining\arm_pickaxe'
+        if rhandempty and varexist GTFO_enabled and not GTFO_disabled
+            script 'harvesting\mining\GTFO'
+        endif
+    endif
+    # Start Check Weight
+    if weight  > maxweight -3 and varexist GTFO_enabled
+        script 'harvesting\mining\GTFO'
+    endif
+    # End Check Weight
+
+    #######
+    if hp < maxhp or poisoned and varexist lifeSupport_enabled
+        if varexist lifeSupport_disabled
+            overhead "life support enabled and disabled. acting on the disabled setting"
+        elseif skill 'healing' > 50 and not bandaging
+            script 'harvesting\mining\life_support\healing'
+        elseif skill 'magery' > 50 and not casting and not varexist too_dangerous
+            script 'harvesting\mining\life_support\magery'
+        elseif skill 'chivary' > 50
+            script 'harvesting\mining\life_support\chivary'
+        endif
+        script 'harvesting\mining\life_support\potions'
+    endif
+    hotkey 'use item in hand'
+    if insysmsg "You do not see"
+        overhead 'No More Ore' 33
+    endif
+    if not insysmsg "skill gain" and not insysmsg "You do not see any" and not insysmsg 'You hack' and not insysmsg 'world  is saving' and not insysmsg 'world will save' and not insysmsg 'World save complete' and not insysmsg 'You dig' and not insysmsg 'You loosen'
+        wait 300
+    endif
+    if not findbuff "Tracking Hunting" and skill 'tracking' > 20 and varexist redTracking_enabled
+        if varexist redTracking_disabled
+            overhead "Red Tracking enabled and disabled. acting on the disabled setting"
+        else
+            #TODO need to add the tracking script
+            script 'harvesting/Miner_Package/miner_Tracker.razor'
+        endif
+    endif
+endwhile

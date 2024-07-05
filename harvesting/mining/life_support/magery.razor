@@ -1,0 +1,10 @@
+hotkey "Target Closest Non-Friendly Monster"
+wait 50
+if find lasttarget ground -1 -1 5
+    overhead "▼ OUT OF RANGE ▼" 88 lasttarget
+    @setvar too_dangerous
+elseif varexist too_dangerous
+    @unsetvar too_dangerous
+endif
+
+script "harvesting\mining\master"
