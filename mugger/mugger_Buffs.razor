@@ -1,0 +1,31 @@
+
+
+#Disarm
+#if not lhandempty
+#    undress 'mbsw'
+#    wait 100
+#endif
+
+#Drink strength
+if str > 120
+    if varexist pot
+        unsetvar pot
+    endif
+    if not findbuff "strength" and findtype "White Potion" backpack as pot
+    dclick pot
+        wait 300
+    endif
+endif
+
+# If in PK mode, drink Magic Resist Potion
+if varexist PkMode
+    if varexist pot
+        unsetvar pot
+    endif
+    if not findbuff "Magic Resist Potion" and  findtype "Black Potion" backpack as pot
+        dclick pot
+        wait 300
+    endif
+endif
+#reArm
+dress 'mbsw'

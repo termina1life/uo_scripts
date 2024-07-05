@@ -1,0 +1,62 @@
+## Start of Utility Mode Enter Appartment
+if varexist utilityMode
+    overhead "My Appartment"
+    say 'room'
+    wait 200
+    waitforgump 2393832411
+    gumpresponse 4
+    wait 300
+    closegump 2393832411
+    close
+endif
+## End of Utility Mode
+
+removelist 'mylist'
+createlist 'mylist'
+pushlist 'mylist' '4'
+pushlist 'mylist' '3'
+pushlist 'mylist' '2'
+pushlist 'mylist' '1'
+
+/// dismount and tell horse to stay
+if not bandaging
+    if hp < maxhp and findtype "clean bandage%s%" backpack
+        hotkey "Bandage Self"
+        wait 150
+    endif
+endif
+#endif
+/// Hiding to Stealth section
+if not hidden
+    skill 'Hiding'
+    wait 100
+    organizer 1
+    /// MainBackStabWeapon is the weapon you use to backstab.
+    if lhandempty
+        dress 'mbsw'
+    endif
+    wait 300
+    if hidden
+        wait 6000
+    endif
+    foreach 'x' in 'mylist'
+        if hidden
+            overhead 'x'
+            wait 900
+        else
+            overhead 'Not Hidden' 38
+            break
+        endif
+    endfor
+    if hidden
+        wait 300
+    skill 'Stealth'
+    overhead 'Go Go Go' 68
+    endif
+
+else
+    skill 'Stealth'
+    overhead 'Go Go Go' 68
+endif
+wait 100
+script RedAlert

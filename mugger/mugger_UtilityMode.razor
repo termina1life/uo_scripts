@@ -1,0 +1,10 @@
+// Set & Unset PK Mode
+// set variable PkMode to true or false for use in other scripts
+if varexist utilityMode
+    unsetvar! utilityMode
+    overhead "Housing Mode"
+else
+    setvar! utilityMode 1
+    overhead "Utility Mode"
+endif
+script RedAlert

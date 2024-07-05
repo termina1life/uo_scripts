@@ -1,0 +1,20 @@
+//Make sure weapon is armed
+if lhandempty
+    dress 'mbsw'
+endif
+
+//Test if in PK mode
+if varexist PkMode
+    //Prioritize the closest PK
+    hotkey "Target Closest Non-Friendly Monster"
+else
+    //Prioritize PvM
+    hotkey 'Target Closest Grey Monster'
+@setvar! myTarget lasttarget
+if not find lasttarget ground -1 -1 1
+    overhead "▼ OUT OF RANGE ▼" 88 lasttarget
+elseif targetexists myTarget
+    useskill "Stealing"
+    wait 150
+    target myTarget
+endif

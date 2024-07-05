@@ -1,0 +1,54 @@
+# DisArm
+#if not lhandempty
+#    undress 'mbsw'
+#    wait 100
+#endif
+
+## Start of Utility Mode Enter Appartment
+if varexist utilityMode
+    overhead "Jays Appartment"
+    say "room"
+    wait 200
+    waitforgump 2393832411
+    wait 400
+    gumpresponse 6
+    wait 200
+    closegump 2393832411
+    close
+endif
+## End of Utility Mode
+
+
+##Pop smoke bomb if paralyzed
+if paralyzed and EnableParalyzePouch = 1
+    overhead "[ !!POP!! ]" 149
+    say "[pouch" 
+    wait 100
+    say "[SmokeBomb"
+    wait 200
+endif
+## Cure Poison
+if hp < maxhp or poisoned and findtype "clean bandage%s%" backpack
+    hotkey "Bandage Self"
+    wait 100
+    if poisoned
+        while findtype "Orange Potion" backpack and poisoned
+            hotkey 'Drink Cure'
+            wait 300
+        endwhile
+        if poisoned
+            overhead 'Out of cures!' 34
+        endif
+    endif
+# EmergancyHeal:
+elseif hp < 50
+    if findtype "Yellow Potion" backpack
+        hotkey 'Drink Heal'
+    else
+        overhead 'Out of heals!' 34
+    endif
+endif
+#ReArm
+dress 'mbsw'
+wait 100
+script RedAlert

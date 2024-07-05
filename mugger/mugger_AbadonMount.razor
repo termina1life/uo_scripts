@@ -1,0 +1,29 @@
+if mounted
+    hotkey "Dismount"
+    wait 700
+    hotkey 'All Stay'
+    wait 250
+    if varexist PkMode
+        //popSmokeBomb
+        if not hidden and findtype "bombs" backpack
+            hotkey "Smoke Bomb"
+        else
+            overhead 'Out of Smokes!!'
+            wait 300
+        endif
+    endif
+elseif not mounted
+    if not find myHorse ground -1 -1 1
+        hotkey 'All Follow'
+        overhead "Mount too Far" 88 
+    else
+        wait 100
+        dclick myHorse
+    endif
+endif
+if lhandempty
+    wait 150
+    dress 'mbsw'
+endif
+wait 100
+script RedAlert

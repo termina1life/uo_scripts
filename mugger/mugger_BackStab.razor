@@ -1,0 +1,38 @@
+## Start of Utility Mode Enter Appartment
+if varexist utilityMode
+    overhead "Banking Mode"
+    say 'guards'
+    wait 200
+    say '[bank'
+    wait 200
+    skill 'Hiding'
+    close
+endif
+## End of Utility Mode
+
+
+
+//Make sure weapon is armed
+if lhandempty
+    dress 'mbsw'
+    wait 300
+endif
+
+//Targeting Mode Selection
+if varexist PkMode
+    //Prioritize the closest PK
+    hotkey "Target Closest Non-Friendly Monster"
+    wait 100
+else
+    //Prioritize PvM
+    hotkey 'Target Closest Grey Monster'
+    wait 100
+endif
+if not find lasttarget ground -1 -1 1
+    overhead "▼ OUT OF RANGE ▼" 88 lasttarget
+else
+    hotkey 'Attack Last Target'
+    if not varexist PkMode
+        say 'God Wills It!!!'
+    endif
+endif

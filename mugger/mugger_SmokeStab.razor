@@ -1,0 +1,16 @@
+## Quick Heal
+if hp < maxhp findtype "clean bandage%s%" backpack
+    hotkey "Bandage Self"
+    wait 200
+endif
+//popSmokeBomb
+if not hidden and findtype "bombs" backpack
+    hotkey "Smoke Bomb"
+    wait 300
+endif
+//Make sure weapon is armed
+if lhandempty
+    dress 'mbsw'
+    wait 300
+endif
+script RedAlert

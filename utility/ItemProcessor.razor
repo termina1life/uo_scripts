@@ -1,0 +1,378 @@
+##############################################
+# (-)Warning / (+)Info
+#   - The script do not evaluate non magical items
+#   - List for quality are groomed to prevent partial matches
+# Recycle uses tinker tool kits
+# The Keeper lists are used to bypass the recycling process
+#   - id_weapon_keepers
+#   - id_armor_keepers
+#   - id_bard_keepers
+#   - id_mage_keepers
+##############################################
+###### List incorperated into the main script
+#
+# id_items : list of items{Weapons, Armor, Bard, Mage} to ID
+# id_good_quality :  list of good quality weapon qualifiers, Keepers
+# id_poor_quality : list of poor quality weapon qualifiers, Burners
+# id_keepers: List items {Weapons, Armor, Bard, Mage}, to only identify and move to good container
+# 
+######
+##############################################
+
+# Set container with Items
+overhead "Select the container with the items to ID/Process."
+setvar id_source_container
+# Set container for items to keep
+overhead "Select the container for storing good items."
+setvar good_items_store_container
+
+for 4
+    if listexists id_items
+        removelist id_items
+    endif
+    if listexists id_good_quality
+        removelist id_good_quality
+    endif
+    if listexists id_poor_quality
+        removelist id_poor_quality
+    endif
+    if listexists id_keepers
+        removelist id_keepers
+    endif
+    if index = 0
+        overhead "Starting Weapons"
+        ###### Start Weapons Section
+        # Set List of Weapons
+        if not listexists id_items
+            createlist id_items
+            pushlist id_items "martial arts scroll"
+            pushlist id_items "halberd"
+            pushlist id_items "bardiche"
+            pushlist id_items "battle axe"
+            pushlist id_items "double axe"
+            pushlist id_items "two handed axe"
+            pushlist id_items "executioner's axe"
+            pushlist id_items "large battle axe"
+            pushlist id_items "axe"
+            pushlist id_items "scimitar"
+            pushlist id_items "longsword"
+            pushlist id_items "viking sword"
+            pushlist id_items "katana"
+            pushlist id_items "cutlass"
+            pushlist id_items "broadsword"
+            pushlist id_items "war hammer"
+            pushlist id_items "war axe"
+            pushlist id_items "maul"
+            pushlist id_items "quarter staff"
+            pushlist id_items "gnarled staff"
+            pushlist id_items "black staff"
+            pushlist id_items "hammer pick"
+            pushlist id_items "club"
+            pushlist id_items "shepherd's crook"
+            pushlist id_items "war mace"
+            pushlist id_items "mace"
+            pushlist id_items "Long Spear"
+            pushlist id_items "pitchfork"
+            pushlist id_items "war fork"
+            pushlist id_items "kryss"
+            pushlist id_items "short spear"
+            pushlist id_items "bow"
+            pushlist id_items "crossbow"
+            pushlist id_items "heavy crossbow"
+            pushlist id_items "bladed staff"
+        endif
+        # End List of Weapons
+        # Set Weapon Good Quality qualifiers
+        if not listexists id_good_quality
+            createlist id_good_quality
+            pushlist id_good_quality "exceedingly accurate"
+            pushlist id_good_quality "supremely accurate"
+            pushlist id_good_quality "fortified"
+            pushlist id_good_quality "indestructible"
+            pushlist id_good_quality "power"
+            pushlist id_good_quality "vanquishing"
+            pushlist id_good_quality "slaying"
+            pushlist id_good_quality "greater"
+        endif
+        # End Weapons Good Quality qualifiers
+        # Set Weapon Poor Quality qualifiers
+        if not listexists id_poor_quality
+            createlist id_poor_quality
+            pushlist id_poor_quality "surpassingly accurate"
+            pushlist id_poor_quality "eminently accurate"
+            pushlist id_poor_quality "durable"
+            pushlist id_poor_quality "substantial"
+            pushlist id_poor_quality "massive"
+            pushlist id_poor_quality "exceptional"
+            pushlist id_poor_quality "might"
+            pushlist id_poor_quality "force"
+            pushlist id_poor_quality "lesser Slaying"
+            pushlist id_poor_quality "accurate"
+        endif
+        # End Weapon Poor Quality qualifiers
+        # Set Weapons to Ignore
+        if not listexists id_keepers
+            createlist id_keepers
+            pushlist id_keepers "halberd"
+            pushlist id_keepers "bardiche"
+        endif 
+        ###### End Weapons Section
+    #End Weapons
+    elseif index = 1
+        overhead "Starting Armor Equipment"
+        ###### Start Armor Section
+        # Set List of Armor Items
+        if not listexists id_items
+            createlist id_items
+            pushlist id_items "leather tunic"
+            pushlist id_items "leather leggings"
+            pushlist id_items "leather sleeves"
+            pushlist id_items "leather cap"
+            pushlist id_items "leather gloves"
+            pushlist id_items "leather gorget"
+            pushlist id_items "leather armor"
+            pushlist id_items "leather bustier"
+            pushlist id_items "leather shorts"
+            pushlist id_items "leather skirt"
+            pushlist id_items "studded tunic"
+            pushlist id_items "studded leggings"
+            pushlist id_items "studded sleeves"
+            pushlist id_items "studded gloves"
+            pushlist id_items "studded gorget"
+            pushlist id_items "studded armor"
+            pushlist id_items "studded bustier"
+            pushlist id_items "bone armor"
+            pushlist id_items "bone legs"
+            pushlist id_items "bone arms"
+            pushlist id_items "bone helmet"
+            pushlist id_items "bone gloves"
+            pushlist id_items "ringmail tunic"
+            pushlist id_items "ringmail leggings"
+            pushlist id_items "ringmail sleeves"
+            pushlist id_items "helmet"
+            pushlist id_items "ringmail gloves"
+            pushlist id_items "orc helm"
+            pushlist id_items "chainmail tunic"
+            pushlist id_items "chainmail leggings"
+            pushlist id_items "chainmail coif"
+            pushlist id_items "platemail"
+            pushlist id_items "platemail legs"
+            pushlist id_items "platemail arms"
+            pushlist id_items "plate helm"
+            pushlist id_items "platemail gloves"
+            pushlist id_items "platemail gorget"
+            pushlist id_items "plate armor"
+            pushlist id_items "bascinet"
+            pushlist id_items "close helm"
+            pushlist id_items "norse helm"
+            pushlist id_items "wooden shield"
+            pushlist id_items "kite shield"
+            pushlist id_items "buckler "
+            pushlist id_items "metal shield"
+            pushlist id_items "bronze shield"
+            pushlist id_items "kite shield"
+            pushlist id_items "heater shield"
+            pushlist id_items "Chaos shield"
+            pushlist id_items "Order shield"
+        endif
+        # End List of Armor Items
+        # Set Armor Good Quality qualifiers
+        if not listexists id_good_quality
+            createlist id_good_quality
+            pushlist id_good_quality "massive"
+            pushlist id_good_quality "fortified"
+            pushlist id_good_quality "indestructible"
+            pushlist id_good_quality "hardening"
+            pushlist id_good_quality "fortification"
+            pushlist id_good_quality "invulnerability"
+        endif
+        # End Armor Good Quality qualifiers
+        # Set Armor Poor Quality qualifiers
+        if not listexists id_poor_quality
+            createlist id_poor_quality
+            pushlist id_poor_quality "durable"
+            pushlist id_poor_quality "exceptional"
+            pushlist id_poor_quality "substantial"
+            pushlist id_poor_quality "mastercrafted"
+            pushlist id_poor_quality "defense"
+            pushlist id_poor_quality "guarding"
+        endif
+        # End Armor Poor Quality qualifiers
+        # Set Armor to Ignore
+        if not listexists id_keepers
+            createlist id_keepers
+            pushlist id_keepers "bone armor"
+            pushlist id_keepers "bone legs"
+            pushlist id_keepers "bone arms"
+            pushlist id_keepers "bone helmet"
+            pushlist id_keepers "bone gloves"
+        endif 
+        ###### End Armour Section
+    elseif index = 2
+        overhead "Starting Bards Items"
+        ###### Start Bard Section
+        #Set Bard Items
+        if not listexists id_items
+            createlist id_items
+            pushlist id_items "lap harp"
+            pushlist id_items "drum"
+            pushlist id_items "lute"
+            pushlist id_items "bamboo flute"
+            pushlist id_items "tambourine"
+        endif
+        #End Bard Items
+        # Set Bard Good Quality qualifiers
+        if not listexists id_good_quality
+            createlist id_good_quality
+            pushlist id_good_quality "fortified"
+            pushlist id_good_quality "indestructible"
+            pushlist id_good_quality "exceedingly melodious"
+            pushlist id_good_quality "supremely melodious"
+            pushlist id_good_quality "slaying"
+            pushlist id_good_quality "greater"
+        endif
+        # End Bard Good Quality qualifiers
+        # Set Bard Poor Quality qualifiers
+        if not listexists id_poor_quality
+            createlist id_poor_quality
+            pushlist id_poor_quality "durable"
+            pushlist id_poor_quality "substantial"
+            pushlist id_poor_quality "massive"
+            pushlist id_poor_quality "surpassingly melodious"
+            pushlist id_poor_quality "eminently melodious"
+            pushlist id_poor_quality "lesser"
+        endif
+        # End Bard Poor Quality qualifiers
+        # Set Bard to Ignore
+        if not listexists id_keepers
+            createlist id_keepers
+        endif 
+        # End Bard to Ignore
+        ###### Stop Bard Section
+    elseif index = 3
+        overhead "Starting Mage Items"
+        ###### Start Mage Section
+        #Set Mage Weapon Items
+        if not listexists id_items
+            createlist id_items
+            pushlist id_items "spellbook"
+        endif
+        #End Mage Weapon Items
+        # Set Mage Poor Quality qualifiers
+        if not listexists id_poor_quality
+            createlist id_poor_quality
+            pushlist id_poor_quality "surpassingly potent"
+            pushlist id_poor_quality "eminently potent"
+            pushlist id_poor_quality "durable"
+            pushlist id_poor_quality "substantial"
+            pushlist id_poor_quality "massive"
+            pushlist id_poor_quality "might"
+            pushlist id_poor_quality "force"
+            pushlist id_poor_quality "lesser"
+            pushlist id_poor_quality "ruin"
+            pushlist id_poor_quality "potent"
+        endif
+        # End Mage Poor Quality qualifiers
+        # Set Mage Good Quality qualifiers
+        if not listexists id_good_quality
+            createlist id_good_quality
+            pushlist id_good_quality "exceedingly potent"
+            pushlist id_good_quality "supremely potent"
+            pushlist id_good_quality "fortified"
+            pushlist id_good_quality "indestructible"
+            pushlist id_good_quality "power"
+            pushlist id_good_quality "vanquishing"
+            pushlist id_good_quality "slaying"
+            pushlist id_good_quality "greater"
+        endif
+        # End Mage Good Quality qualifiers
+        # Set Mage to Ignore
+        if not listexists id_keepers
+            createlist id_keepers
+        endif 
+        ###### Stop Mage Section
+    endif
+
+    ###### Start Main Script
+    # Check for Item ID skill
+    if skill "Item Identification" <= 0
+        overhead "Requires item ID skill to continue.." 34
+        stop
+    endif
+    ##DEFINE
+
+    # Start Weapons Section
+    foreach id in id_items
+        sysmsg id 88
+        wait 1000
+        while findtype id id_source_container as item
+            getlabel item description
+            overhead description 88
+            if unidentified in description
+                while unidentified in description
+                    useskill "itemId"
+                    wft 500
+                    target item
+                    wait 2000
+                    getlabel item description
+                endwhile
+            endif
+            overhead "Checking for Custom Exceptions" 77
+            foreach keeper in id_keepers
+                if keeper in description
+                    overhead "Keeping: {{description}}" 77
+                    lift item
+                    drop good_items_store_container
+                    wait 500
+                    ignore item
+                endif
+            endfor
+            overhead "Starting quality check: {{description}}" 77
+            if not varexist keeper
+                foreach quality in id_good_quality
+                    if quality in description
+                        overhead "Good Shit!!!: {{description}}" 77
+                        lift item
+                        drop good_items_store_container
+                        wait 500
+                        ignore item
+                    endif
+                endfor
+            endif
+            foreach quality in id_poor_quality
+                if quality in description
+                    if varexist recycleKit
+                        unsetvar recycleKit
+                    endif
+                    overhead "Recycling: {{description}}" 77
+                    ## Need to accout for other toolkits.
+                    if findtype 'tool kit' backpack as recycleKit
+                        overhead "using tinker kit"
+                        setvar recycleKit recycleKit
+                    elseif findtype "sewing kit" backpack as recycleKit
+                        overhead "using sewing kit"
+                        setvar recycleKit recycleKit
+                    endif
+                    if varexist recycleKit
+                        dclick recycleKit
+                        wait 200
+                        waitforgump 949095101
+                        wait 200
+                        gumpresponse 3
+                        wait 200
+                        waitfortarget
+                        wait 200
+                        dclick item
+                        ignore item
+                    else
+                        overhead 'No Tool Kit Found, not recycling'
+                        ignore item
+                    endif
+                endif
+            endfor
+            break
+        endwhile
+    endfor
+    # Stop Weapons Section  
+    clearignore 
+endfor
