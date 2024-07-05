@@ -1,0 +1,22 @@
+if paralyzed
+    hotkey 'Play Script: Defense\TriggerTrappedPouch'
+endif
+if poisoned 'self'
+    cast 'Cure'
+    waitfortarget
+    target 'self'
+    wait 500
+endif
+if diffhits > 40
+    cast 'Greater Heal'
+    waitfortarget
+    target 'self'
+    wait 500
+elseif diffhits > 0
+    cast 'Heal'
+    waitfortarget 
+    target 'self'
+    wait 500
+endif
+setlasttarget
+

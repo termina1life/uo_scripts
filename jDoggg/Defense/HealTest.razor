@@ -1,0 +1,27 @@
+if poisoned 'self'
+    cast 'Cure'
+    waitfortarget
+    target 'self'
+    wait 500
+    overhead 'cure'
+endif
+if diffhits > 40 and diffmana < 89
+    cast 'Greater Heal'
+    waitfortarget
+    target 'self'
+    wait 500
+    overhead 'large heal'
+elseif diffhits > 0 and diffmana < 96
+    cast 'Heal'
+    waitfortarget 
+    target 'self'
+    wait 500
+    overhead 'small heal'
+else 
+    if findtype 'Yellow Potion' backpack as pot
+        dclick pot
+        overhead 'heal potion'
+    else
+        overhead 'No heal potions'
+    endif   
+endif
