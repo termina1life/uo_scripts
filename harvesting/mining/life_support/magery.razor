@@ -1,10 +1,30 @@
 hotkey "Target Closest Non-Friendly Monster"
 wait 50
 if find lasttarget ground -1 -1 5
-    overhead "▼ OUT OF RANGE ▼" 88 lasttarget
+    overhead "▼ Too Dangerous to Case ▼" 88 lasttarget
     @setvar too_dangerous
 elseif varexist too_dangerous
     @unsetvar too_dangerous
 endif
-
+if varexist too_dangerous
+    script "harvesting\mining\life_support\pots"
+endif
+if poisoned 'self'
+    cast 'Cure'
+    waitfortarget
+    target 'self'
+    wait 500
+endif
+if diffhits > 40
+    cast 'Greater Heal'
+    waitfortarget
+    target 'self'
+    wait 500
+elseif diffhits > 0
+    cast 'Heal'
+    waitfortarget 
+    target 'self'
+    wait 500
+endif
+hotkey "Target Closest Non-Friendly Monster"
 script "harvesting\mining\master"
