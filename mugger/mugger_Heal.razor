@@ -17,7 +17,7 @@ if varexist townMode
     stop
 endif
 ## End of Utility Mode
-if and varexist lifeSupport_enabled and hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
+if hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
     script 'mugger\life_support\lifeSupport'
 endif
 #ReArm
