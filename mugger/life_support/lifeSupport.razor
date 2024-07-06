@@ -34,13 +34,13 @@ if rebuild
 endif
 
 
-if not varexist haveHealing and skill healing <= 80
+if not varexist haveHealing and skill healing >= 80
     @setvar haveHealing 1
 endif
-if not varexist haveMagery and skill magery <= 80
+if not varexist haveMagery and skill magery >= 80
     @setvar haveMagery 1
 endif
-if not varexist haveChivalry and skill chivalry <= 80
+if not varexist haveChivalry and skill chivalry >= 80
     @setvar haveChivalry 1
 endif
 if varexist haveHealing and not varexist superBandages and skill 'anatomy' >= 80
