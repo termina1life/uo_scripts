@@ -15,18 +15,18 @@ sysmsg  "starting master"
 #This enables life_support by default
 #You can override this by commenting out the lines below
 if not varexist  lifeSupport_enabled
-    #@setvar lifeSupport_enabled
-    @setvar lifeSupport_disabled '1'
+    @setvar lifeSupport_enabled
+    #@setvar lifeSupport_disabled '1'
 endif
 #This is where you stop commenting for life_support removal
 
 #Start Red Tracking Options
 if not varexist redTracking_enabled
-    #@setvar redTracking_enabled
-    @setvar redTracking_disabled '1'
-    #@setvar GTFO_enabled
-    @setvar GTFO_disabled '1'
-    @setvar GTFOrange '50'
+    @setvar redTracking_enabled
+    #@setvar redTracking_disabled '1'
+    @setvar GTFO_enabled
+    #@setvar GTFO_disabled '1'
+    @setvar GTFOrange '35'
 endif
 # End Red Tracking Options
 while not dead  
