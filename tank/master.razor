@@ -7,13 +7,13 @@
 #   - cure potions
 # DisArm Checker
 #  - You need to set two varibles in scripts (options)
-#       - TimMainWeapon
-#       - TimMainShield
+#       - MainWeapon
+#       - MainShield
 #
 ######################
 ## Primer Clearing list in case of modification
-twoHandedPreffered
-Shield_preferred
+@setvar twoHandedPreffered '1'
+#@setvar Shield_preferred '1'
 ## End Primer
 
 
@@ -24,6 +24,8 @@ Shield_preferred
 while not dead
     if rhandempty
         script 'tank\arms\rearm'
+    endif
     if hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
         script 'tank\life_support\lifeSupport'
+    endif
 endwhile
