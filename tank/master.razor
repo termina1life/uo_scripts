@@ -12,175 +12,19 @@
 #
 ######################
 ## Primer Clearing list in case of modification
-removelist fencingWeapons
-removelist shields
+twoHandedPreffered
+Shield_preferred
 ## End Primer
 
-###### Start Weapons Section
-# Start Weapons List Section
-if not listexists fencingWeapons
-    createlist fencingWeapons
-    pushlist fencingWeapons "katana"
-    pushlist fencingWeapons "Long Spear"
-    pushlist fencingWeapons "pitchfork"
-    pushlist fencingWeapons "war fork"
-    pushlist fencingWeapons "kryss"
-    pushlist fencingWeapons "short spear"
-    pushlist fencingWeapons "bladed staff"
-endif
-# End Weapons List Section
 
-# Start Shields List Section
-if not listexists shields
-    createlist shields
-    pushlist shields "wooden shield"
-    pushlist shields "kite shield"
-    pushlist shields "buckler "
-    pushlist shields "metal shield"
-    pushlist shields "bronze shield"
-    pushlist shields "kite shield"
-    pushlist shields "heater shield"
-    pushlist shields "Chaos shield"
-    pushlist shields "Order shield"
-endif
-# End Shields List Section
+
+
 
 ##########Main Script##########
 while not dead
-    ## Start weapon check and disarm recovery
-    if rhandempty and not varexist TimMainWeapon
-        overhead "Tim you need to set your main weapon! in options on razor."
-    endif
-    if rhandempty and not findtype TimMainWeapon backpack
-        overhead "Your main weapon is not in your backpack!, looking for shit."
-        foreach weapon in fencingWeapons
-            if findtype weapon backpack as MainWeapon
-                dclick MainWeapon
-            endif
-        endfor
-    elseif rhandempty
-        overhead "Your are so FUCKED you have no weapons!!!"
-    elseif findtype TimMainWeapon backpack
-        dclick TimMainWeapon
-    endif
-    ## Stop weapon check and disarm recovery
-    ## Start shield check and disarm recovery
-    if lhandempty and not varexist TimMainShield
-        overhead "Tim you need to set your main shield! in options on razor."
-    endif
-    if lhandempty and not findtype TimMainShield backpack
-        overhead "Your main shield is not in your backpack!, looking for shit."
-        foreach shield in shields
-            if findtype shield backpack as MainShield
-                dclick MainShield
-            endif
-        endfor
-    elseif lhandempty
-        overhead "Your are so FUCKED you have no Shield!!!"
-    elseif findtype TimMainShield backpack
-        dclick TimMainShield
-    endif
-    ## End shield check and disarm recovery
-    ##Start Danger Eval
-    if hp < 20
-        overhead "PICKLES!!!!" 34
-        wait 100
-    endif
-    ##Stop Danger Eval
-    ## Bandage sequence
-    if hp < maxhp
-        if not bandaging
-            if findtype "clean bandage%s%" backpack
-                hotkey "Bandage Self"
-                wait 100
-            else
-                overhead "Out of bandages!" 34
-            endif
-        endif
-    endif
-    ## Paralysis removal sequence
-    if paralyzed 
-        if findtype "pouch" backpack 38 
-            yell "[pouch"
-            wait 200
-        else
-            overhead "Out of Pouches!" 34
-        endif
-    endif
-    ## Poison removal sequence
-    while poisoned
-        overhead "Poison Detected. Working on it."
-        # Apply Backup bandages to start timer
-        if hp < maxhp
-            if not bandaging
-                if findtype "clean bandage%s%" backpack
-                    hotkey "Bandage Self"
-                    wait 100
-                else
-                    overhead "Out of bandages!" 34
-                endif
-            endif
-        endif
-        while findtype "Orange Potion" backpack
-            hotkey 'Drink Cure'
-            wait 300
-        endwhile
-        if not findtype "Orange Potion" backpack
-            overhead 'Out of cures!' 34
-            overhead "Cleansing Poison With Fire"
-            wait 250
-            say '[CleanseByFire'
-            wait 250
-        endif
-    endwhile
-    ## Bleed removal sequence
-    while findbuff "bleed"
-        overhead "Bleed Detected. Working on it."
-        # Apply Backup bandages to start timer
-        if hp < maxhp
-            if not bandaging
-                if findtype "clean bandage%s%" backpack
-                    hotkey "Bandage Self"
-                    wait 100
-                else
-                    overhead "Out of bandages!" 34
-                endif
-            endif
-        endif
-        if hp < 70
-            overhead "Emergancy...Closing wounds."
-            wait 250
-            say '[Closewounds'
-            wait 250
-        endif
-    endwhile
-    ## VD removal sequence
-    while findbuff "disease"
-        overhead "VD Detected. Working on it."
-        # Apply Backup bandages to start timer
-        if hp < maxhp
-            if not bandaging
-                if findtype "clean bandage%s%" backpack
-                    hotkey "Bandage Self"
-                    wait 100
-                else
-                    overhead "Out of bandages!" 34
-                endif
-            endif
-        endif
-        overhead "Cleansing Disease."
-        wait 250
-        say '[Closewounds'
-        wait 250
-    endwhile
-    # Emergancy heal sequence        
-    if hp < 45
-        overhead "Emergancy Pot Heal Sequence"
-        if findtype "Yellow Potion" backpack
-            hotkey 'Drink Heal'
-        else
-            overhead 'Out of heals!' 34
-        endif
-    endif
-    wait 1000
+    if rhandempty
+        script 'tank\arms\rearm'
+    if hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease"
+        script 'tank\life_support\lifeSupport'
+
 endwhile

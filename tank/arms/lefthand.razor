@@ -1,0 +1,10 @@
+if lhandempty
+    sysmsg "Your main shield is not in your backpack!, looking for a replacement."
+    foreach shield in Shields
+        if findtype shield backpack as backupShield
+            dclick backupShield
+        endif
+    endfor
+elseif lhandempty
+    overhead "You have no shields!!!"
+script "tank\master"

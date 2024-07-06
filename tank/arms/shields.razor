@@ -1,0 +1,18 @@
+if varexist rebuild
+    @removelist Shields
+endif
+if not listexists Shields
+    if not varexist twoHandedPreffered
+        if not listexists Shields
+            createlist Shields
+            pushlist Shields "Chaos Shield"
+            pushlist Shields "Order Shield"
+            pushlist Shields "Heater Shield"
+            pushlist Shields "Metal Kite Shield"
+            pushlist Shields "Bronze Shield"
+            pushlist Shields "Metal Shield"
+            pushlist Shields "Buckler"
+        endif
+    endif
+endif
+script "tank\arms\leftHand"

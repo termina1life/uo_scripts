@@ -1,0 +1,27 @@
+if varexist rebuild
+    @removelist Weapons
+endif
+if not listexists Weapons
+    if varexists twoHandedPreffered
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Short Spear"
+            pushlist Weapons "Spear"
+            pushlist Weapons "Pitchfork"
+            pushlist Weapons "Sarissa"
+        endif
+    else
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Kryss"
+            pushlist Weapons "Warfork"
+            pushlist Weapons "Fencing Sabre"
+            pushlist Weapons "Kukri"
+            pushlist Weapons "Rapier"
+            pushlist Weapons "Hunting Knife"
+            pushlist Weapons "Epee"
+            pushlist Weapons "Assassin's Knife"
+        endif
+    endif
+endif
+script "tank\arms\rightHand"

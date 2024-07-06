@@ -1,0 +1,24 @@
+if varexist rebuild
+    @removelist Weapons
+endif
+if not listexists Weapons
+    if findtype "arrow" backpack
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Hunting Bow"
+            pushlist Weapons "Recurve Bow"
+            pushlist Weapons "Bow"
+            pushlist Weapons "Great Bow"
+        endif
+    else
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Heavy Crossbow"
+            pushlist Weapons "Balestra"
+            pushlist Weapons "Rampart Crossbow"
+            pushlist Weapons "Crossbow"
+            pushlist Weapons "Pistol Crossbow"
+        endif
+    endif
+endif
+script "tank\arms\rightHand"

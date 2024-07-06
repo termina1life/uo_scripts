@@ -1,16 +1,15 @@
-if poisoned
+while poisoned
     overhead "Cleansing Poison With Fire"
     wait 250
     say '[CleanseByFire'
     wait 150
+    if not poisoned
+        script "tank\master"
 endif
-if hp < maxhp or bandaging > 3
-    overhead "Emergancy...Closing wounds."
-    wait 250
+
+if hp < diffhits > 20 or findbuff "bleed" or findbuff "disease"
+    #TODO may need to test for target range.. not sure though
     say '[Closewounds'
     wait 250
 endif
-if poisoned
-    script "harvesting\mining\life_support\pots"
-endif
-script "harvesting\mining\master"
+ script "tank\master"

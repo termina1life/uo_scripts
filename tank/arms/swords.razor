@@ -1,0 +1,36 @@
+if varexist rebuild
+    @removelist Weapons
+endif
+if not listexists Weapons
+    if varexists twoHandedPreffered
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Katana"
+            pushlist Weapons "Viking Sword"
+            pushlist Weapons "Scimitar"
+            pushlist Weapons "Longsword"
+            pushlist Weapons "Cutlass"
+            pushlist Weapons "Broad Sword"
+            pushlist Weapons "Norse Axe"
+        endif
+    else
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Axe"
+            pushlist Weapons "Halberd"
+            pushlist Weapons "Two-Handed"
+            pushlist Weapons "Bardiche"
+            pushlist Weapons "Battle Axe"
+            pushlist Weapons "Zweihander"
+            pushlist Weapons "Double Axe"	
+            pushlist Weapons "Great Axe"
+            pushlist Weapons "Large Battle Axe"			
+            pushlist Weapons "Hatchet"
+            pushlist Weapons "Executioner's Axe"
+        endif
+endif
+script "tank\arms\rightHand"
+
+
+
+

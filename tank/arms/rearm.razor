@@ -1,0 +1,41 @@
+if not varexist mainWeapon
+    sysmsg "Your main weapon! is not set in razors script options"
+    sysmsg "Creating a null variable for MainWeapon, please update later."
+    @setvar mainWeapon 0
+endif
+if not varexist mainShield
+    sysmsg "Your main shield! is not set in razors script options"
+    sysmsg "Creating a null variable for mainShield, please update later."
+    @setvar mainShield 0
+endif
+if rhandempty and findtype mainWeapon backpack
+    dclick mainWeapon
+elseif rhandempty and varexist backupWeapon and findtype backupWeapon backpack
+    dclick backupWeapon
+elseif rhandempty
+    if varexist backupWeapon
+        @unsetvar backupWeapon
+    endif
+    if skill archery >= 80
+        script "tank\arms\archery"
+    elseif skill macing >= 80
+        script "tank\arms\macing"
+    elseif skill fencing >= 80
+        script "tank\arms\fencing"
+    elseif skill swords >= 80
+        script "tank\arms\swords"
+    endif
+endif
+if lhandempty and varexist twoHandedPreffered
+    script "tank\master"
+elseif lhandempty and findtype mainShield backpack
+    dclick mainShield
+elseif lhandempty and varexist backupShield and findtype backupShield backpack
+    dclick backupShield
+elseif lhandempty
+    if varexist backupWeapon
+        @unsetvar backupWeapon
+    endif
+    script "tank\arms\shields"
+endif
+script "tank\master"

@@ -1,0 +1,34 @@
+if varexist rebuild
+    @removelist Weapons
+endif
+if not listexists Weapons
+    if varexists twoHandedPreffered
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Mace"
+            pushlist Weapons "War Axe"
+            pushlist Weapons "Maul"
+            pushlist Weapons "Hammerpick"
+            pushlist Weapons "War Mace"
+            pushlist Weapons "Cudgel"
+            pushlist Weapons "Pickaxe"
+            pushlist Weapons "Skull Club"
+            pushlist Weapons "Club"
+        endif
+    if varexists twoHandedPreffered
+        if not listexists Weapons
+            createlist Weapons
+            pushlist Weapons "Flanged Mace"
+            pushlist Weapons "Flail"
+            pushlist Weapons "Gnarled Staff"
+            pushlist Weapons "War Hammer"
+            pushlist Weapons "Black Staff"
+            pushlist Weapons "Great Sledge"
+            pushlist Weapons "Quarter Staff"
+            pushlist Weapons "Great Mace"
+            pushlist Weapons "Giant Spiked Mace"
+            pushlist Weapons "Giant Club"
+            pushlist Weapons "Shepherd's Crook"
+    endif
+endif
+script "tank\arms\rightHand"
