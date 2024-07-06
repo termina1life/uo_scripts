@@ -4,7 +4,7 @@ while poisoned
     say '[CleanseByFire'
     wait 150
     if not poisoned
-        script "tank\master"
+        script 'harvesting\mining\life_support\lifeSupport'
 endif
 
 if hp < diffhits > 20 or findbuff "bleed" or findbuff "disease"
@@ -12,4 +12,4 @@ if hp < diffhits > 20 or findbuff "bleed" or findbuff "disease"
     say '[Closewounds'
     wait 250
 endif
- script "tank\master"
+ script 'harvesting\mining\life_support\lifeSupport'

@@ -20,15 +20,15 @@ if hp < maxhp
     endif
     if varexist haveMagery
         if not bandaging < 3 and diffhits > 0
-            script 'tank\life_support\magery'
+            script 'harvesting\mining\life_support\magery'
         else
-            script 'tank\master'
+            script 'harvesting\mining\life_support\lifeSupport'
     endif
     if varexist haveChivalry
         if not bandaging < 3 and diffhits > 20
-            script 'tank\life_support\chivalry'
+            script 'harvesting\mining\life_support\chivalry'
         else
-            script 'tank\master'
+            script 'harvesting\mining\life_support\lifeSupport'
     endif
 endif
-script 'tank\master'
+script 'harvesting\mining\life_support\lifeSupport'

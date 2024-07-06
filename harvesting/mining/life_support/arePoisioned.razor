@@ -1,4 +1,4 @@
-if not bandaging and varexist poisonBandages
+if not bandaging and varexist superBandages
     if findtype "clean bandage%s%" backpack
         hotkey "Bandage Self"
         wait 100
@@ -8,7 +8,7 @@ if not bandaging and varexist poisonBandages
     wait 100
 endwhile
 if poisoned and varexist haveCurePots
-    if varexist poisonBandages and not bandaging < 3 and hp < maxhp - 30
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
         while poisoned
             if findtype "Yellow Potions" backpack
                 hotkey 'Drink Cure'
@@ -21,18 +21,18 @@ if poisoned and varexist haveCurePots
     endif
 endif
 if poisoned and varexist haveMagery
-    if varexist poisonBandages and not bandaging < 3 and hp < maxhp - 30
-        script 'tank\life_support\magery'
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+        script 'harvesting\mining\life_support\magery'
     else
-        script 'tank\master'
+        script 'harvesting\mining\life_support\lifeSupport'
     endif
 endif
 if poisoned and varexist haveChivalry
-    if varexist poisonBandages and not bandaging < 3 and hp < maxhp - 30
-        script 'tank\life_support\chivalry'
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+        script 'harvesting\mining\life_support\chivalry'
     else
-        script 'tank\master'
+        script 'harvesting\mining\life_support\lifeSupport'
     endif
 endif
-script 'tank\master'
+script 'harvesting\mining\life_support\lifeSupport'
         

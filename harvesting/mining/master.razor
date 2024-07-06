@@ -10,8 +10,26 @@
 #    - You can override this by creating a global varible under script options in razor.
 # - Life Support is on by default, this will heal you if you are below max hp, poisoned, or bleeding
 #   - You can override this comment out the lines below for life support 
-
-
+ if varexist rebuild
+    if varexist GTFO_enabled
+        @unsetvar GTFO_enabled
+    endif
+    if varexist GTFO_disabled
+        @unsetvar GTFO_disabled
+    endif
+    if varexist GTFOrange
+        @unsetvar GTFOrange
+    endif
+    if varexist redTracking_enabled
+        @unsetvar redTracking_enabled
+    endif
+    if varexist redTracking_disabled
+        @unsetvar redTracking_disabled
+    endif
+    if varexist redTracking_disabled
+        @unsetvar lifeSupport_enabled
+    endif
+endif
 #This enables life_support by default
 #You can override this by commenting out the lines below
 if not varexist  lifeSupport_enabled
@@ -43,17 +61,9 @@ while not dead
     # End Check Weight
 
     #######
-    if hp < maxhp or poisoned and varexist lifeSupport_enabled
-        if varexist lifeSupport_disabled
-            overhead "life support enabled and disabled. acting on the disabled setting"
-        elseif skill 'healing' > 50 and not bandaging
-            script 'harvesting\mining\life_support\healing'
-        elseif skill 'magery' > 50 and not casting and not varexist too_dangerous
-            script 'harvesting\mining\life_support\magery'
-        elseif skill 'chivary' > 50
-            script 'harvesting\mining\life_support\chivary'
-        endif
-        script 'harvesting\mining\life_support\pots'
+
+    if and varexist lifeSupport_enabled and hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
+        script 'harvesting\mining\life_support\lifeSupport'
     endif
     hotkey 'use item in hand'
     if insysmsg "You do not see"

@@ -28,8 +28,8 @@ if rebuild
     if varexist havePopPouch
         @unsetvar havePopPouch
     endif
-    if varexist poisonBandages
-        @unsetvar poisonBandages
+    if varexist superBandages
+        @unsetvar superBandages
     endif
 endif
 
@@ -43,8 +43,8 @@ endif
 if not varexist haveChivalry and skill chivalry <= 80
     @setvar haveChivalry 1
 endif
-if varexist haveHealing and not varexist poisonBandages and skill 'anatomy' >= 80
-    @setvar poisonBandages 1
+if varexist haveHealing and not varexist superBandages and skill 'anatomy' >= 80
+    @setvar superBandages 1
 endif
 if not varexist haveBandages and findtype "clean bandage%s%" backpack
      @setvar haveBandages 1

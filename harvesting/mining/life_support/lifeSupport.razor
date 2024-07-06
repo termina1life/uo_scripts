@@ -28,8 +28,8 @@ if rebuild
     if varexist havePopPouch
         @unsetvar havePopPouch
     endif
-    if varexist poisonBandages
-        @unsetvar poisonBandages
+    if varexist superBandages
+        @unsetvar superBandages
     endif
 endif
 
@@ -43,8 +43,8 @@ endif
 if not varexist haveChivalry and skill chivalry <= 80
     @setvar haveChivalry 1
 endif
-if varexist haveHealing and not varexist poisonBandages and skill 'anatomy' >= 80
-    @setvar poisonBandages 1
+if varexist haveHealing and not varexist superBandages and skill 'anatomy' >= 80
+    @setvar superBandages 1
 endif
 if not varexist haveBandages and findtype "clean bandage%s%" backpack
      @setvar haveBandages 1
@@ -64,14 +64,15 @@ if hp < 20
     wait 100
 endif
 if paralyzed and varexist havePopPouch
-    script 'tank\life_support\areParalized'
+    script 'harvesting\mining\life_support\areParalized'
 elseif poisoned
-    script 'tank\life_support\arePoisioned'
+    script 'harvesting\mining\life_support\arePoisioned'
 elseif hp < maxhp
-    script 'tank\life_support\areHurt'
+    script 'harvesting\mining\life_support\areHurt'
 elseif findbuff "bleed"
-    script 'tank\life_support\areBleeding'
+    script 'harvesting\mining\life_support\areBleeding'
 elseif findbuff "disease"
-    script 'tank\life_support\areDiseased'
+    script 'harvesting\mining\life_support\areDiseased'
 endif
-script 'tank\master'
+#Change to source script
+script 'harvesting\mining\master'

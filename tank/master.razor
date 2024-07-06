@@ -24,7 +24,6 @@ Shield_preferred
 while not dead
     if rhandempty
         script 'tank\arms\rearm'
-    if hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease"
+    if hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
         script 'tank\life_support\lifeSupport'
-
 endwhile
