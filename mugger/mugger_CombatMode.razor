@@ -1,16 +1,16 @@
 // Set & Unset PK Mode
 // set variable PkMode to true or false for use in other scripts
 if varexist PkMode
-    if varexist utilityMode
+    if varexist townMode
         overhead "Utility Mode Off"
-        unsetvar! utilityMode
+        unsetvar! townyMode
     endif
     unsetvar! PkMode
     overhead "Monster Mode"
 else
-    if varexist utilityMode
+    if varexist townMode
         overhead "Utility Mode Off"
-        unsetvar! utilityMode
+        unsetvar! townMode
     endif
     setvar! PkMode 1
     overhead "Player Mode"

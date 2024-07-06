@@ -1,0 +1,16 @@
+clearsysmsg # Author: Demlar
+# walk close to a tree with a dagger in your backpack.
+setvar camp 1
+#if skill 'Hiding' < 100
+#    setvar hide 1
+#endif
+
+while not dead   
+    while  findtype "kindling" backpack and  skill "Camping" < 100 and varexist camp
+        #if not findtype "campfire" ground -1 1 2
+        say "guards"
+        wait 300
+        dclicktype "kindling" backpack
+        wait 2000
+    endwhile
+endwhile

@@ -1,9 +1,9 @@
 // Set & Unset PK Mode
 // set variable PkMode to true or false for use in other scripts
-if varexist utilityMode
-    @unsetvar utilityMode
-    overhead "Utility Mode Off"
+if varexist townMode
+    @unsetvar townMode
+    overhead "Housing Mode Off"
 else
-    @setvar utilityMode 1
-    overhead "Utility Mode On"
+    @setvar townMode '1'
+    overhead "Housing Mode On"
 endif

@@ -1,0 +1,18 @@
+#sysmsg 'Distance to destination: 10 steps.'
+#removelist redDistance
+@setvar cls 99
+if not listexists redDistance
+    createlist redDistance
+    for 105
+        pushlist redDistance index 'front'
+    endfor
+endif
+
+foreach i in redDistance
+    if insysmsg i
+        if index < cls
+            overhead i
+            break
+        endif
+    endif
+endfor

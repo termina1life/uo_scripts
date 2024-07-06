@@ -1,0 +1,18 @@
+//Targeting Mode Selection
+while not dead
+    if skill "swordsmanship" = 80
+        setskill "swordsmanship" lock
+    endif
+
+    if skill "healing" = 80
+        setskill "healing" lock
+    endif
+
+    if skill "anatomy" = 80
+        setskill "anatomy" lock
+    endif
+
+    warmode on
+    hotkey 'Target Closest Grey Monster'
+    hotkey 'Attack Last Target'
+endwhile
