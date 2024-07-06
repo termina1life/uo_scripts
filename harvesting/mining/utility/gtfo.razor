@@ -1,3 +1,4 @@
+unsetvar GTFO_disabled
 if varexist GTFO_enabled and not varexist GTFO_disabled
     overhead "GTFO"
     wait 150
@@ -6,6 +7,8 @@ if varexist GTFO_enabled and not varexist GTFO_disabled
     waitforgump 1551740969
     wait 100
     gumpresponse 2
+    wait 100
+    stop
 elseif varexist GTFO_disabled
     overhead "GTFO enabled and disabled exist, honoring disabled setting"
 else
