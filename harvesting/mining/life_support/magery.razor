@@ -1,12 +1,12 @@
 hotkey "Target Closest Non-Friendly Monster"
 wait 50
 if find lasttarget ground -1 -1 5
-    overhead "▼ Too Dangerous to Case ▼" 88 lasttarget
+    overhead "▼ Too Dangerous to Cast ▼" 88 lasttarget
     @setvar too_dangerous
 elseif varexist too_dangerous
     @unsetvar too_dangerous
 endif
-if varexist too_dangerous
+if varexist too_dangerous and not cooldown "heal potion" and not poisoned
     script "harvesting\mining\life_support\pots"
 endif
 if poisoned 'self'

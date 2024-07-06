@@ -1,235 +1,299 @@
 if not varexist GTFOrange
-    overhead "Red Tracking did not receive a distance.  Setting to 50 steps."
-    @setvar GTFOrange 50
+    overhead "Red Tracking did not receive a distance."
 endif
-if insysmsg "Now tracking"
+if insysmsg "distance"
     overhead "RED In Area"
 endif 
 if insysmsg "Distance to destination: 60 steps." or insysmsg "60 spaces"
     overhead "Red 60 steps away" 53
-    wait 250
+    if varexist GTFOrange and 60 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 59 steps." or insysmsg "59 spaces"
     overhead "Red 59 steps away" 53
-    wait 250
+    if varexist GTFOrange and 69 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 58 steps." or insysmsg "58 spaces"
     overhead "Red 58 steps away" 53
-    wait 250
+    if varexist GTFOrange and 58 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 57 steps." or insysmsg "57 spaces"
     overhead "Red 57 steps away" 53
-    wait 250
+    if varexist GTFOrange and 57 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 56 steps." or insysmsg "56 spaces"
     overhead "Red 56 steps away" 53
-    wait 250
+    if varexist GTFOrange and 56 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 55 steps." or insysmsg "55 spaces"
     overhead "Red 55 steps away" 53
-    wait 250
+    if varexist GTFOrange and 55 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 54 steps." or insysmsg "54 spaces"
     overhead "Red 54 steps away" 53
-    wait 250
+    if varexist GTFOrange and 54 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 53 steps." or insysmsg "53 spaces"
     overhead "Red 53 steps away" 53
-    wait 250
+    if varexist GTFOrange and 53 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 52 steps." or insysmsg "52 spaces"   
     overhead "Red 52 steps away" 53
-    wait 250
+    if varexist GTFOrange and 52 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 51 steps." or insysmsg "51 spaces"
     overhead "Red 51 steps away" 53
-    wait 250
+    if varexist GTFOrange and 51 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 50 steps." or insysmsg "50 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 50 steps away" 33
+    if varexist GTFOrange and 50 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 49 steps." or insysmsg "49 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 49 steps away" 33
+    if varexist GTFOrange and 49 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 48 steps." or insysmsg "48 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 48 steps away" 33
+    if varexist GTFOrange and 48 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 47 steps." or insysmsg "47 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 47 steps away" 33
+    if varexist GTFOrange and 47 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 46 steps." or insysmsg "46 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 46 steps away" 33
+    if varexist GTFOrange and 46 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 45 steps." or insysmsg "45 spaces"     
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 45 steps away" 33
+    if varexist GTFOrange and 45 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 44 steps." or insysmsg "44 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 44 steps away" 33
+    if varexist GTFOrange and 44 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 43 steps." or insysmsg "43 spaces"    
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 43 steps away" 33
+    if varexist GTFOrange and 43 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 42 steps." or insysmsg "42 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 42 steps away" 33
+    if varexist GTFOrange and 42 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 41 steps." or insysmsg "41 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    overhead "Red 41 steps away" 33
+    if varexist GTFOrange and 41 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 40 steps." or insysmsg "40 spaces"
-    overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
-### Start Red Tracker Start GTFO
+    overhead "Red 30 steps away" 33
+    if varexist GTFOrange and 40 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 39 steps." or insysmsg "39 spaces"
     overhead "Red 39 steps away" 33
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 39 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 38 steps." or insysmsg "38 spaces"
     overhead "Red 38 steps away" 33
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 38 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 37 steps." or insysmsg "37 spaces"
     overhead "Red 37 steps away" 33
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 37 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 36 steps." or insysmsg "36 spaces"
     overhead "Red 36 steps away" 33
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 36 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 35 steps." or insysmsg "35 spaces"
     overhead "Red 35 steps away" 33
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 35 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 34 steps." or insysmsg "34 spaces"
     overhead "Red 34 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 34 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 33 steps." or insysmsg "33 spaces"
     overhead "Red 33 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 33 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 32 steps." or insysmsg "32 spaces"
     overhead "Red 32 steps away" 28
-    script miner_GTFO
-    wait 500
+    if varexist GTFOrange and 32 == GTFOrange
+        script 'harvesting\mining\gtfo'
 elseif insysmsg "Distance to destination: 31 steps." or insysmsg "31 spaces"
     overhead "Red 31 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 31 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 30 steps." or insysmsg "30 spaces"
     overhead "Red 30 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 30 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 29 steps." or insysmsg "29 spaces"
     overhead "Red 29 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 29 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 28 steps." or insysmsg "28 spaces"
     overhead "Red 28 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 28 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 27 steps." or insysmsg "27 spaces"
     overhead "Red 27 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 27 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 26 steps." or insysmsg "26 spaces"
     overhead "Red 26 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 26 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 25 steps." or insysmsg "25 spaces"
     overhead "Red 25 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 25 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 24 steps." or insysmsg "24 spaces"
     overhead "Red 24 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 24 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 23 steps." or insysmsg "23 spaces"
     overhead "Red 23 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 23 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 22 steps." or insysmsg "22 spaces"
     overhead "Red 22 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 22 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 21 steps." or insysmsg "21 spaces"
     overhead "Red 21 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 21 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 20 steps." or insysmsg "20 spaces"
     overhead "Red 20 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 20 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 19 steps." or insysmsg "19 spaces"
     overhead "Red 19 steps away" 28
-    script miner_GTFO
+    if varexist GTFOrange and 19 == GTFOrange
+        script 'harvesting\mining\gtfo'
 elseif insysmsg "Distance to destination: 18 steps." or insysmsg "18 spaces"
     overhead "Red 18 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 18 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 17 steps." or insysmsg "17 spaces"
     overhead "Red 17 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 17 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 16 steps." or insysmsg "16 spaces"
     overhead "Red 16 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 16 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 15 steps." or insysmsg "15 spaces"
     overhead "Red 15 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 15 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 14 steps." or insysmsg "14 spaces"
     overhead "Red 14 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 14 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 13 steps." or insysmsg "13 spaces"
     overhead "Red 13 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 13 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 12 steps." or insysmsg "12 spaces"
     overhead "Red 12 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 12 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 11 steps." or insysmsg "11 spaces"
     overhead "Red 11 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 11 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 10 steps." or insysmsg "10 spaces"
     overhead "Red 10 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 10 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 9 steps." or insysmsg "9 spaces"
     overhead "Red 9 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 9 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 8 steps." or insysmsg "8 spaces"
     overhead "Red 8 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 8 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 7 steps." or insysmsg "7 spaces"
     overhead "Red 7 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 7 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 6 steps." or insysmsg "6 spaces"
     overhead "Red 6 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 6 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 5 steps." or insysmsg "5 spaces"
     overhead "Red 5 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 5 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 4 steps." or insysmsg "4 spaces"
     overhead "Red 4 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 4 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination: 3 steps." or insysmsg "3 spaces"
     overhead "Red 3 steps away" 28
-    script miner_GTFO
-    break
+    if varexist GTFOrange and 3 == GTFOrange
+        script 'harvesting\mining\gtfo'
+    endif
 elseif insysmsg "Distance to destination"
     overhead "Red Safe Distance" 53
-    wait 250
 elseif not findbuff "Tracking Hunting"
 skill 'tracking'
 wait 100
@@ -238,3 +302,4 @@ gumpresponse 6
 wait 100
 gumpclose 4267467659
 endif
+script "harvesting\mining\master"

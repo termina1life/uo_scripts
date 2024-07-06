@@ -31,14 +31,14 @@ endif
 # End Red Tracking Options
 while not dead  
     if rhandempty 
-        script 'harvesting\mining\arm_pickaxe'
+        script 'harvesting\mining\utility\arm_pickaxe'
         if rhandempty and varexist GTFO_enabled and not GTFO_disabled
-            script 'harvesting\mining\GTFO'
+            script 'harvesting\mining\gtfo'
         endif
     endif
     # Start Check Weight
-    if weight  > maxweight -3 and varexist GTFO_enabled
-        script 'harvesting\mining\GTFO'
+    if weight  > maxweight -3
+        script 'harvesting\mining\utility\gtfo'
     endif
     # End Check Weight
 
@@ -53,7 +53,7 @@ while not dead
         elseif skill 'chivary' > 50
             script 'harvesting\mining\life_support\chivary'
         endif
-        script 'harvesting\mining\life_support\potions'
+        script 'harvesting\mining\life_support\pots'
     endif
     hotkey 'use item in hand'
     if insysmsg "You do not see"
@@ -67,7 +67,7 @@ while not dead
             overhead "Red Tracking enabled and disabled. acting on the disabled setting"
         else
             #TODO need to add the tracking script
-            script 'harvesting/Miner_Package/miner_Tracker.razor'
+            script 'harvesting/Miner_Package/utility/RedTracker.razor'
         endif
     endif
 endwhile

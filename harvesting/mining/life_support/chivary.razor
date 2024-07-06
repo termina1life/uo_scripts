@@ -1,1 +1,16 @@
+if poisoned
+    overhead "Cleansing Poison With Fire"
+    wait 250
+    say '[CleanseByFire'
+    wait 150
+endif
+if hp < maxhp or bandaging > 3
+    overhead "Emergancy...Closing wounds."
+    wait 250
+    say '[Closewounds'
+    wait 250
+endif
+if poisoned
+    script "harvesting\mining\life_support\pots"
+endif
 script "harvesting\mining\master"

@@ -4,5 +4,8 @@ if not bandaging
     else
         overhead "Out of bandages!" 34
     endif
+if bandaging and bandaging > 3 and hp < maxhp - 60
+    overhead "calling potion script"
+    script "harvesting\mining\life_support\pots"
 endif
 script "harvesting\mining\master"

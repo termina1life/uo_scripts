@@ -1,0 +1,15 @@
+if varexist GTFO_enabled and not varexist GTFO_disabled
+    overhead "GTFO"
+    wait 150
+    dclick 0x68D62DEA
+    wait 200
+    waitforgump 1551740969
+    wait 100
+    gumpresponse 2
+elseif varexist GTFO_disabled
+    overhead "GTFO enabled and disabled exist, honoring disabled setting"
+else
+    overhead "GTFO is disabled. stoping script, manual mode now!!"
+    stop
+endif 
+script "harvesting\mining\master"

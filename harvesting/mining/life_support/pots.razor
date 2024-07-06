@@ -1,1 +1,15 @@
+while poisoned
+    overhead "Poison Detected. Working on it."
+    while findtype "Orange Potion" backpack
+        hotkey 'Drink Cure'
+        wait 300
+    endwhile
+endwhile     
+if hp < maxhp - 20 and not cooldown 'heal potion'
+    if findtype "Yellow Potion" backpack
+        hotkey 'Drink Heal'
+    else
+        overhead 'Out of heals!' 34
+    endif
+endif
 script "harvesting\mining\master"
