@@ -14,7 +14,7 @@ if varexist townMode
     gumpresponse 6
     wait 200
     closegump 2393832411
-    close
+    stop
 endif
 ## End of Utility Mode
 if and varexist lifeSupport_enabled and hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
