@@ -1,0 +1,15 @@
+while poisoned
+    overhead "Cleansing Poison With Fire"
+    wait 250
+    say '[CleanseByFire'
+    wait 150
+    if not poisoned
+        script 'mugger\life_support\lifeSupport'
+endif
+
+if hp < diffhits > 20 or findbuff "bleed" or findbuff "disease"
+    #TODO may need to test for target range.. not sure though
+    say '[Closewounds'
+    wait 250
+endif
+ script 'mugger\life_support\lifeSupport'

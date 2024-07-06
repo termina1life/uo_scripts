@@ -1,0 +1,13 @@
+if not bandaging and diffhits < 0
+    if findtype "clean bandage%s%" backpack
+        hotkey "Bandage Self"
+        wait 100
+    else 
+        overhead "Out of bandages!" 34
+        @unsetvar haveBandages
+    endif
+endif
+if findbuff "disease" and varexist haveChivalry
+    script 'mugger\life_support\chivalry'
+endif
+script 'mugger\life_support\lifeSupport'

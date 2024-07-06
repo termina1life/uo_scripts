@@ -1,0 +1,78 @@
+##Defines Priority for healing and support skills
+# 1. Healing = haveHealing
+# 2. Magery = haveMagery
+# 3. Chivalry = haveChivalry
+# 4. Bandages = haveBandages
+# 5. CurePots = haveCurePots
+# 6. HealPots = haveHealPots
+##
+if rebuild
+    if varexist haveHealing
+        @unsetvar haveHealing
+    endif
+    if varexist haveMagery
+        @unsetvar haveMagery
+    endif
+    if varexist haveChivalry
+        @unsetvar haveChivalry
+    endif
+    if varexist haveBandages
+        @unsetvar haveBandages
+    endif
+    if varexist haveCurePots
+        @unsetvar haveCurePots
+    endif
+    if varexist haveHealPots
+        @unsetvar haveHealPots
+    endif
+    if varexist havePopPouch
+        @unsetvar havePopPouch
+    endif
+    if varexist superBandages
+        @unsetvar superBandages
+    endif
+endif
+
+
+if not varexist haveHealing and skill healing <= 80
+    @setvar haveHealing 1
+endif
+if not varexist haveMagery and skill magery <= 80
+    @setvar haveMagery 1
+endif
+if not varexist haveChivalry and skill chivalry <= 80
+    @setvar haveChivalry 1
+endif
+if varexist haveHealing and not varexist superBandages and skill 'anatomy' >= 80
+    @setvar superBandages 1
+endif
+if not varexist haveBandages and findtype "clean bandage%s%" backpack
+     @setvar haveBandages 1
+endif
+if not varexist haveCurePots and findtype "Yellow Potions" backpack 
+    @setvar haveCurePots 1
+endif
+if not varexist haveHealPots and findtype "Orange Potion" backpack
+    @setvar haveHealPots 1
+endif
+if not varexist havePopPouch and findtype "pouch" backpack 38
+    @setvar havePopPouch 1
+endif
+
+if hp < 20
+    overhead "PICKLES!!!!" 34
+    wait 100
+endif
+if paralyzed and varexist havePopPouch
+    script 'mugger\life_support\areParalized'
+elseif poisoned
+    script 'mugger\life_support\arePoisioned'
+elseif hp < maxhp
+    script 'mugger\life_support\areHurt'
+elseif findbuff "bleed"
+    script 'mugger\life_support\areBleeding'
+elseif findbuff "disease"
+    script 'mugger\life_support\areDiseased'
+endif
+#Change to source script
+script 'mugger\mugger_Heal'

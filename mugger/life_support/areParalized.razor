@@ -1,0 +1,11 @@
+while paralyzed and varexist havePopPouch
+    if findtype "pouch" backpack 38 
+            yell "[pouch"
+            wait 200
+    else
+        overhead "Out of TrapPouches!" 34
+        @unsetvar havePopPouch
+        script 'mugger\life_support\lifeSupport'
+    endif
+endwhile
+script 'mugger\life_support\lifeSupport'

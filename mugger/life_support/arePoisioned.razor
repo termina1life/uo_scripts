@@ -1,0 +1,38 @@
+if not bandaging and varexist superBandages
+    if findtype "clean bandage%s%" backpack
+        hotkey "Bandage Self"
+        wait 100
+    else 
+        overhead "Out of bandages!" 34
+        @unsetvar haveBandages
+    wait 100
+endwhile
+if poisoned and varexist haveCurePots
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+        while poisoned
+            if findtype "Yellow Potions" backpack
+                hotkey 'Drink Cure'
+                wait 300
+            elseif if poisoned and not findtype "Yellow Potions" backpack
+                @unsetvar haveCurePots
+                break
+            endif
+        endwhile
+    endif
+endif
+if poisoned and varexist haveMagery
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+        script 'mugger\life_support\magery'
+    else
+        script 'mugger\life_support\lifeSupport'
+    endif
+endif
+if poisoned and varexist haveChivalry
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+        script 'mugger\life_support\chivalry'
+    else
+        script 'mugger\life_support\lifeSupport'
+    endif
+endif
+script 'mugger\life_support\lifeSupport'
+        

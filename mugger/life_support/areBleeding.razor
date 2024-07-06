@@ -1,0 +1,18 @@
+if not bandaging and varexist superBandages
+    if findtype "clean bandage%s%" backpack
+        hotkey "Bandage Self"
+        wait 100
+    else 
+        overhead "Out of bandages!" 34
+        @unsetvar haveBandages
+    endif
+endif
+
+if findbuff "bleed" and varexist haveChivalry
+    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+        script 'mugger\life_support\chivalry'
+    else
+        script 'mugger\life_support\lifeSupport'
+    endif
+endif
+script 'mugger\life_support\lifeSupport'

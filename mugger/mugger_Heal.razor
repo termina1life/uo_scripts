@@ -17,36 +17,8 @@ if varexist utilityMode
     close
 endif
 ## End of Utility Mode
-
-
-##Pop smoke bomb if paralyzed
-if paralyzed and EnableParalyzePouch = 1
-    overhead "[ !!POP!! ]" 149
-    say "[pouch" 
-    wait 100
-    say "[SmokeBomb"
-    wait 200
-endif
-## Cure Poison
-if hp < maxhp or poisoned and findtype "clean bandage%s%" backpack
-    hotkey "Bandage Self"
-    wait 100
-    if poisoned
-        while findtype "Orange Potion" backpack and poisoned
-            hotkey 'Drink Cure'
-            wait 300
-        endwhile
-        if poisoned
-            overhead 'Out of cures!' 34
-        endif
-    endif
-# EmergancyHeal:
-elseif hp < 50
-    if findtype "Yellow Potion" backpack
-        hotkey 'Drink Heal'
-    else
-        overhead 'Out of heals!' 34
-    endif
+if and varexist lifeSupport_enabled and hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
+    script 'mugger\life_support\lifeSupport'
 endif
 #ReArm
 dress 'mbsw'
