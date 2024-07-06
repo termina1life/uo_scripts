@@ -33,7 +33,7 @@ while not dead
     if rhandempty 
         script 'harvesting\mining\utility\arm_pickaxe'
         if rhandempty and varexist GTFO_enabled and not GTFO_disabled
-            script 'harvesting\mining\gtfo'
+            script 'harvesting\mining\utility\gtfo'
         endif
     endif
     # Start Check Weight
@@ -67,7 +67,7 @@ while not dead
             overhead "Red Tracking enabled and disabled. acting on the disabled setting"
         else
             #TODO need to add the tracking script
-            script 'harvesting/Miner_Package/utility/RedTracker.razor'
+            script 'harvesting\mining\utility\RedTracker'
         endif
     endif
 endwhile
