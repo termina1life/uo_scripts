@@ -1,4 +1,4 @@
-if findbuff "Tracking"
+if findbuff "Tracking Hunting"
     sysmsg "Staring RedAlert" 53
     while not dead
         if insysmsg "Now tracking"
@@ -16,7 +16,7 @@ if findbuff "Tracking"
             overhead "Red 57 steps away" 53
             wait 3000
         elseif insysmsg "Distance to destination: 56 steps." or insysmsg "56 spaces"
-            overhead "Red 56 steps away" 53a
+            overhead "Red 56 steps away" 53
             wait 3000
         elseif insysmsg "Distance to destination: 55 steps." or insysmsg "55 spaces"
             overhead "Red 55 steps away" 53
