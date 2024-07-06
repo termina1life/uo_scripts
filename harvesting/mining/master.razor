@@ -15,16 +15,16 @@ sysmsg  "starting master"
 #This enables life_support by default
 #You can override this by commenting out the lines below
 if not varexist  lifeSupport_enabled
-    @setvar lifeSupport_enabled
+    @setvar lifeSupport_enabled '1' 
     #@setvar lifeSupport_disabled '1'
 endif
 #This is where you stop commenting for life_support removal
 
 #Start Red Tracking Options
 if not varexist redTracking_enabled
-    @setvar redTracking_enabled
+    @setvar redTracking_enabled '1'
     #@setvar redTracking_disabled '1'
-    @setvar GTFO_enabled
+    @setvar GTFO_enabled '1'
     #@setvar GTFO_disabled '1'
     @setvar GTFOrange '35'
 endif
@@ -62,7 +62,7 @@ while not dead
     if not insysmsg "skill gain" and not insysmsg "You do not see any" and not insysmsg 'You hack' and not insysmsg 'world  is saving' and not insysmsg 'world will save' and not insysmsg 'World save complete' and not insysmsg 'You dig' and not insysmsg 'You loosen'
         wait 300
     endif
-    if not findbuff "Tracking Hunting" and skill 'tracking' > 20 and varexist redTracking_enabled
+    if skill 'tracking' > 50 and varexist redTracking_enabled
         if varexist redTracking_disabled
             overhead "Red Tracking enabled and disabled. acting on the disabled setting"
         else
