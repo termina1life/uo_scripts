@@ -47,16 +47,17 @@ if not hidden
             overhead 'Not Hidden' 38
             break
         endif
+        if insysmsg "distance"
+            overhead 'Red in Area' 38
     endfor
     if hidden
         wait 300
     skill 'Stealth'
     overhead 'Go Go Go' 68
     endif
-
 else
     skill 'Stealth'
     overhead 'Go Go Go' 68
 endif
 wait 100
-script RedAlert
+script 'mugger\RedAlert'
