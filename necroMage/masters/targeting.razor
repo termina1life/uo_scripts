@@ -1,1 +1,11 @@
-setlasttarget 
+if not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
+    hotkey 'Last Target'
+    if not targetexists 'harmful'
+        if varexist PkMode
+            //Prioritize the closest PK
+            hotkey "Target Closest Non-Friendly Monster"
+        else
+            hotkey 'Target Closest Grey Monster'
+        endif
+    endif
+endif
