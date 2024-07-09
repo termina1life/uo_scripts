@@ -1,34 +1,26 @@
-## Bandage sequence
-if hp < maxhp
-    if not bandaging and varexist haveHealing and varexist haveBandages
-        if findtype "clean bandage%s%" backpack
-            hotkey "Bandage Self"
-            wait 50
-        else
-            overhead "Out of bandages!" 34
-            @unsetvar haveBandages
-        endif
-    endif
-    if hp < maxhp - 60 and haveHealPots and not cooldown 'Heal'
-        if findtype "Orange Potion" backpack
-            hotkey 'Drink Heal'
-            wait 250
-        else
-            overhead 'Out of heals!' 34
-            @unsetvar haveHealP
-        endif
-    endif
-    if varexist haveMagery
-        if not bandaging < 3 and diffhits > 0
-            script 'tank\life_support\magery'
-        else
-            script 'tank\master'
-    endif
-    if varexist haveChivalry
-        if not bandaging < 3 and diffhits > 20
-            script 'tank\life_support\chivalry'
-        else
-            script 'tank\master'
+if hp < maxhp - 65 and haveHealPots and not cooldown 'Heal'
+    if findtype "Orange Potion" backpack
+        hotkey 'Drink Heal'
+        wait 250
+    else
+        overhead 'Out of heals!' 34
+        @unsetvar haveHealP
     endif
 endif
-script 'tank\master'
+
+if hp < maxhp
+    if diffhits > 40
+        #TODO may need to test for target range.
+        cast 'Greater Heal'
+        waitfortarget
+        target 'self'
+        wait 500
+    elseif diffhits > 0
+        #TODO may need to test for target range.
+        cast 'Heal'
+        waitfortarget 
+        target 'self'
+        wait 500
+    endif
+endif
+script 'necroMage\masters\lifeSupport'
