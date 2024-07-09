@@ -1,0 +1,11 @@
+if rhandempty and not findtype MainWeapon backpack
+    sysmsg "Your main weapon is not in your backpack!, looking for a replacement."
+    foreach weapon in Weapons
+        if findtype weapon backpack as backupWeapon
+            dclick backupWeapon
+        endif
+    endfor
+elseif rhandempty
+    overhead "You have no weapons!!!"
+endif
+script "tank\master"
