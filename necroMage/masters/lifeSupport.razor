@@ -1,12 +1,9 @@
 ##Defines Priority for healing and support skills
-# 1. Healing = haveHealing
-# 2. Magery = haveMagery
-# 3. Chivalry = haveChivalry
-# 4. Bandages = haveBandages
-# 5. CurePots = haveCurePots
-# 6. HealPots = haveHealPots
+# 1. Magery = haveMagery
+# 2. CurePots = haveCurePots
+# 3. HealPots = haveHealPots
 ##
-if rebuild
+if varexist rebuild
     if varexist haveMagery
         @unsetvar haveMagery
     endif
@@ -20,7 +17,6 @@ if rebuild
         @unsetvar havePopPouch
     endif
 endif
-
 
 if not varexist haveMagery and skill magery >= 80
     @setvar haveMagery 1
@@ -49,5 +45,5 @@ elseif hp < maxhp
 #    script 'necroMage\life_support\areBleeding'
 #elseif findbuff "disease" #TODO: need to how to cure with magery or pots
 #    script 'necroMage\life_support\areDiseased'
-#endif
+endif
 script 'necroMage\masters\targeting'
