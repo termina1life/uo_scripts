@@ -1,0 +1,70 @@
+if paralyzed
+    hotkey 'Play Script: AgentTwo\Defense\TriggerTrappedPouch'
+endif
+if not findbuff 'Magic Reflection'
+    overhead 'Magic Reflection needed'
+    cooldown MagicReflection
+endif
+if not findbuff 'Reactive Armor'
+    overhead 'Reactive Armor needed'
+endif
+if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
+    overhead 'Bless needed'
+endif
+if not findbuff 'Protection'
+    overhead 'Arch Protection needed'
+endif
+if varexist setPKmode and setPKmode = 0
+    cast 'Lightning'
+    waitfortarget 
+    target lasttarget 
+    cooldown Lightning
+    wait 900
+    cast 'Fireball'
+    waitfortarget 
+    target lasttarget 
+    cooldown Fireball
+    wait 500
+    cast 'Harm'
+    waitfortarget 
+    target lasttarget 
+    cooldown Harm
+    wait 500
+    cast 'Magic Arrow'
+    waitfortarget 
+    target lasttarget 
+    cooldown MagicArrow
+    if diffmana > 50
+        hotkey 'Play Script: AgentTwo\Defense\Eat Shroom'
+    endif
+elseif varexist setPKmode and setPKmode = 1
+    if not cooldown FirstCircle
+        cast 'Magic Arrow'
+        waitfortarget 
+        target lasttarget 
+        cooldown FirstCircle
+        wait 500
+    elseif not cooldown SecondCircle
+        cast 'Harm'
+        waitfortarget 
+        target lasttarget 
+        cooldown SecondCircle
+        wait 500
+    elseif not cooldown ThirdCircle
+        cast 'Fireball'
+        waitfortarget 
+        target lasttarget 
+        cooldown ThirdCircle
+        wait 500
+    else
+        cast 'Lightning'
+        waitfortarget 
+        target lasttarget
+        wait 900
+    endif
+    if diffmana > 50
+        hotkey 'Play Script: AgentTwo\Defense\Eat Shroom'
+    endif
+else
+    overhead 'variable setPKmode does not exist'
+endif

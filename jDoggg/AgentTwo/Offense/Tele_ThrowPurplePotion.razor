@@ -1,0 +1,39 @@
+if paralyzed
+    hotkey 'Play Script: AgentTwo\Defense\TriggerTrappedPouch'
+endif
+if not findbuff 'Magic Reflection'
+    overhead 'Magic Reflection needed'
+    cooldown MagicReflection
+endif
+if not findbuff 'Reactive Armor'
+    overhead 'Reactive Armor needed'
+endif
+if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
+    overhead 'Bless needed'
+endif
+if not findbuff 'Protection'
+    overhead 'Arch Protection needed'
+endif
+if varexist setPKmode and setPKmode = 1
+    if findtype 'Purple Potion' backpack as pot
+        if not cooldown Telekinesis
+            cast 'Telekinesis'
+            waitfortarget 
+            target lasttarget
+            cooldown Telekinesis
+            wait 500
+        endif
+        dclick pot
+        waitfortarget 
+        #wait 3900
+        target lasttarget 
+        cooldown 'Purple Potion'
+    else
+        overhead 'No exploding potions'
+    endif
+    if diffmana > 50
+        hotkey 'Play Script: AgentTwo\Defense\Eat Shroom'
+    endif
+else
+    overhead 'Not in PK Mode'
+endif

@@ -1,0 +1,8 @@
+if paralyzed
+    hotkey 'Play Script: AgentTwo\Defense\TriggerTrappedPouch'
+endif
+cast 'Greater Heal'
+waitfortarget
+if diffmana > 50
+    hotkey 'Play Script: AgentTwo\Defense\Eat Shroom'
+endif

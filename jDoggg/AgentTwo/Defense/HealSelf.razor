@@ -1,0 +1,24 @@
+if paralyzed
+    hotkey 'Play Script: AgentTwo\Defense\TriggerTrappedPouch'
+endif
+if poisoned 'self'
+    cast 'Cure'
+    waitfortarget
+    target 'self'
+    wait 500
+endif
+if diffhits > 40
+    cast 'Greater Heal'
+    waitfortarget
+    target 'self'
+    wait 500
+elseif diffhits > 0
+    cast 'Heal'
+    waitfortarget 
+    target 'self'
+    wait 500
+endif
+if diffmana > 50
+    hotkey 'Play Script: AgentTwo\Defense\Eat Shroom'
+endif
+setlasttarget
