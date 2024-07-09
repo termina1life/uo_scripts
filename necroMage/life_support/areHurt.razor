@@ -1,10 +1,10 @@
 if hp < maxhp - 65 and haveHealPots and not cooldown 'Heal'
-    if findtype "Orange Potion" backpack
+    if findtype "Yellow Potion" backpack
         hotkey 'Drink Heal'
         wait 250
     else
         overhead 'Out of heals!' 34
-        @unsetvar haveHealP
+        @unsetvar haveHealPots
     endif
 endif
 
