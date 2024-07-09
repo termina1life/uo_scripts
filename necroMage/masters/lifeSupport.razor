@@ -18,13 +18,14 @@ if varexist rebuild
     endif
 endif
 
+
 if not varexist haveMagery and skill magery >= 80
     @setvar haveMagery 1
 endif
-if not varexist haveCurePots and findtype "Yellow Potions" backpack 
+if not varexist haveCurePots and findtype "Orange Potion" backpack 
     @setvar haveCurePots 1
 endif
-if not varexist haveHealPots and findtype "Orange Potion" backpack
+if not varexist haveHealPots and findtype "Yellow Potion" backpack
     @setvar haveHealPots 1
 endif
 if not varexist havePopPouch and findtype "pouch" backpack 38
