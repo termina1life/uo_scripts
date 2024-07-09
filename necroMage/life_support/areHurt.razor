@@ -1,4 +1,4 @@
-if hp < maxhp - 65 and haveHealPots and not cooldown 'Heal'
+if hp < maxhp - 65 and varexist haveHealPots and not cooldown 'Heal'
     if findtype "Yellow Potion" backpack
         hotkey 'Drink Heal'
         wait 250
