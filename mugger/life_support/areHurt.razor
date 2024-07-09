@@ -23,12 +23,14 @@ if hp < maxhp
             script 'mugger\life_support\magery'
         else
             script 'mugger\life_support\lifeSupport'
+        endif
     endif
     if varexist haveChivalry
         if not bandaging < 3 and diffhits > 20
             script 'mugger\life_support\chivalry'
         else
             script 'mugger\life_support\lifeSupport'
+        endif
     endif
 endif
 script 'mugger\life_support\lifeSupport'

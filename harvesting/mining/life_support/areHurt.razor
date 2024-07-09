@@ -9,7 +9,7 @@ if hp < maxhp
             @unsetvar haveBandages
         endif
     endif
-    if hp < maxhp - 60 and haveHealPots and not cooldown 'Heal'
+    if diffhits > 60 and haveHealPots and not cooldown 'Heal'
         if findtype "Orange Potion" backpack
             hotkey 'Drink Heal'
             wait 250
@@ -19,16 +19,18 @@ if hp < maxhp
         endif
     endif
     if varexist haveMagery
-        if not bandaging < 3 and diffhits > 0
+        if not bandaging and diffhits > 0
             script 'harvesting\mining\life_support\magery'
         else
             script 'harvesting\mining\life_support\lifeSupport'
+        endif
     endif
     if varexist haveChivalry
-        if not bandaging < 3 and diffhits > 20
+        if not bandaging and diffhits > 20
             script 'harvesting\mining\life_support\chivalry'
         else
             script 'harvesting\mining\life_support\lifeSupport'
+        endif
     endif
 endif
 script 'harvesting\mining\life_support\lifeSupport'

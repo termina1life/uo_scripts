@@ -7,28 +7,27 @@ if not bandaging and varexist superBandages
         @unsetvar haveBandages
     wait 100
 endwhile
-if poisoned and varexist haveCurePots
-    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
-        while poisoned
-            if findtype "Yellow Potions" backpack
-                hotkey 'Drink Cure'
-                wait 300
-            elseif if poisoned and not findtype "Yellow Potions" backpack
-                @unsetvar haveCurePots
-                break
-            endif
-        endwhile
-    endif
+
+if poisoned
+    while poisoned
+        if findtype "Orange Potion" backpack
+            hotkey 'Drink Cure'
+            wait 300
+        elseif poisoned and not findtype "Orange Potion" backpack
+            @unsetvar haveCurePots
+            break
+        endif
+    endwhile
 endif
 if poisoned and varexist haveMagery
-    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+    if varexist superBandages and not bandaging and diffhits > 30
         script 'harvesting\mining\life_support\magery'
     else
         script 'harvesting\mining\life_support\lifeSupport'
     endif
 endif
 if poisoned and varexist haveChivalry
-    if varexist superBandages and not bandaging < 3 and hp < maxhp - 30
+    if varexist superBandages and not bandagingand diffhits > 30
         script 'harvesting\mining\life_support\chivalry'
     else
         script 'harvesting\mining\life_support\lifeSupport'
