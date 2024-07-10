@@ -1,3 +1,20 @@
+//O' Shit Heal
+hotkey "Target Closest Non-Friendly Monster"
+if noto lasttarget = hostile or noto lasttarget = criminal and find lasttarget ground -1 -1 3
+    if diffhits > 30
+        if findtype "Yellow Potion" backpack
+            hotkey 'Drink Heal'
+            wait 100
+        endif
+    endif
+    for 2
+        cast 'Heal'
+        waitfortarget 
+        target 'self'
+        wait 500
+    endfor
+endif
+
 if hp < maxhp - 65 and varexist haveHealPots and not cooldown 'Heal'
     if findtype "Yellow Potion" backpack
         hotkey 'Drink Heal'
@@ -15,7 +32,7 @@ if hp < maxhp
         waitfortarget
         target 'self'
         wait 500
-    elseif diffhits > 0
+    elseif diffhits > 12
         #TODO may need to test for target range.
         cast 'Heal'
         waitfortarget 
