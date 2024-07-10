@@ -9,9 +9,11 @@ if not varexist angryTarget and not varexist extraMode
     elseif noto angryTarget = innocent or noto angryTarget = friend
         overhead 'Innocent, not targeting'
         @unsetvar angryTarget
+        replay
     else
         overhead 'Something else, not targeting'
         @unsetvar angryTarget
+        replay
     endif
 elseif not targetexists 'harmful'
     hotkey 'Last Target'
