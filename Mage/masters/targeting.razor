@@ -1,3 +1,7 @@
+if varexist debug
+    sysmsg 'Mage.masters.targeting.razor.razor'
+    overhead 'Mage.masters.targeting.razor.razor'
+endif
 if varexist angryTarget
     overhead "removing my target"
     @unsetvar angryTarget

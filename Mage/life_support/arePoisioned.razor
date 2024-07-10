@@ -1,3 +1,7 @@
+if varexist debug
+    sysmsg 'Mage.life_support.arePoisoned.razor'
+    overhead 'Mage.life_support.arePoisoned.razor'
+endif
 if poisoned and varexist haveCurePots
     while poisoned
     if findtype "Orange Potion" backpack

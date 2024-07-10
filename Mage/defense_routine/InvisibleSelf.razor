@@ -1,6 +1,8 @@
-if paralyzed
-    script 'Mage\utility\eatShrooms'
-endif
+if varexist debug
+    sysmsg 'Mage.defense_routine.InvisibleSelf.razor'
+    overhead 'Mage.defense_routine.InvisibleSelf.razor'
+endif   
+
 cast 'Invisibility'
 waitfortarget 
 target 'self'

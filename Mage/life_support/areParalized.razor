@@ -1,3 +1,7 @@
+if varexist debug
+    sysmsg 'Mage.life_support.areParalized.razor'
+    overhead 'Mage.life_support.areParalized.razor'
+endif
 while paralyzed and varexist havePopPouch
     if findtype "pouch" backpack 38 
             yell "[pouch"

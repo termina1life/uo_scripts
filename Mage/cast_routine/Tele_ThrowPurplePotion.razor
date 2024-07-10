@@ -1,3 +1,7 @@
+if varexist debug
+    overhead 'Mage.cast_routine.Tele_ThrowPurplePotion.razor'
+    sysmsg 'Mage.cast_routine.Tele_ThrowPurplePotion.razor'
+endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
     script 'Mage\masters\targeting'

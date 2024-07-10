@@ -1,3 +1,7 @@
+if varexist debug
+    sysmsg 'Mage.life_support.areHurt.razor'
+    overhead 'Mage.life_support.areHurt.razor'
+endif
 //O' Shit Heal
 hotkey "Target Closest Non-Friendly Monster"
 if noto lasttarget = murderer or noto lasttarget = criminal and find lasttarget ground -1 -1 3

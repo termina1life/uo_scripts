@@ -1,3 +1,7 @@
+if varexist debug
+    sysmsg 'Mage.follower_control.Followers_AllKill.razor'
+    overhead 'Mage.follower_control.Followers_AllKill.razor'
+endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
     script 'Mage\masters\targeting'

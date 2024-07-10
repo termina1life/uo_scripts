@@ -1,3 +1,7 @@
+if varexist debug
+    sysmsg 'Mage.defense_routine.Buff.razor'
+    overhead 'Mage.defense_routine.Buff.razor'
+endif
 if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
     cast 'Bless'
     waitfortarget

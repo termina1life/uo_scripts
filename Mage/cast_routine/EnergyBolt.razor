@@ -1,3 +1,7 @@
+if varexist debug
+    overhead 'Mage.cast_routine.EnergyBolt.razor'   
+    sysmsg 'Mage.cast_routine.EnergyBolt.razor'
+endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
     script 'Mage\masters\targeting'

@@ -1,0 +1,16 @@
+###
+# optional Varibles
+# mainWeapon: (set in script options)
+if varexist debug
+    sysmsg "Mage.equipemnt.reArm.razor.razor"
+    overhead "Mage.equipemnt.reArm.razor"
+endif
+if rhandempty
+    if varexist mainWeapon and findtype mainWeapon backpack
+        dclick mainWeapon
+    elseif findtype "spellbook" backpack as book
+            dclick book
+    else
+        sysmsg "You have no main weapon or spellbook in backpack!!!"
+    endif
+endif
