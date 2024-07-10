@@ -4,8 +4,6 @@
 # 3. HealPots = haveHealPots
 ##
 overhead '-------------------'
-overhead 'Buff Support Status'
-overhead '-------------------'
 if not findbuff 'Magic Reflection'
     overhead 'Magic Reflection needed'
     cooldown MagicReflection
@@ -19,8 +17,6 @@ endif
 if not findbuff 'Protection'
     overhead 'Arch Protection needed'
 endif
-overhead '-------------------'
-overhead 'End Buff Support Status'
 overhead '-------------------'
 
 if varexist rebuild
