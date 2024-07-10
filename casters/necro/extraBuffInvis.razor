@@ -1,0 +1,10 @@
+if varexist debug    
+    sysmsg 'casters\necro\extraBuffInvis'
+    overhead 'casters\necro\extraBuffInvis'
+endif
+
+if varexist extraMode
+    script 'casters\magery\defensiveRoutine\invisibleSelf'
+else
+    script 'casters\magery\defensiveRoutine\Buff'
+endif

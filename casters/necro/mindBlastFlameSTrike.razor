@@ -1,0 +1,15 @@
+if varexist debug
+    sysmsg 'caster.magery.offensiveRoutine.MindBlast.razor'
+    overhead 'caster.magery.offensiveRoutine.MindBlast.razor'
+endif
+
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'casters\masters\targeting'
+endif
+if varexist angryTarget
+    if varexist extraMode
+        script "casters\magery\offensiveRoutine\FlameStrike"
+    else
+        script "casters\magery\offensiveRoutine\MindBlast"
+endif
