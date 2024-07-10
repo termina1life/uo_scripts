@@ -1,7 +1,8 @@
 if varexist angryTarget and not varexist extraMode
     overhead "removing my target"
     @unsetvar angryTarget
-elseif not varexist angryTarget and not varexist extraMode
+endif
+if not varexist angryTarget and not varexist extraMode
     setvar angryTarget
     if noto angryTarget = hostile or noto angryTarget = criminal or noto angryTarget = enemy or noto angryTarget = murderer
         overhead 'Enemy'
