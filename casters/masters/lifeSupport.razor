@@ -59,9 +59,9 @@ endif
 if paralyzed and varexist havePopPouch
     script 'caster\life_support\areParalized'
 elseif poisoned
-    script 'caster\life_support\arePoisioned'
+    script 'casters\life_support\arePoisioned'
 elseif hp < maxhp
-    script 'caster\life_support\areHurt'
+    script 'casters\life_support\areHurt'
 #elseif findbuff "bleed" #TODO: need to how to cure with magery or pots
 #    script 'necroMage\life_support\areBleeding'
 #elseif findbuff "disease" #TODO: need to how to cure with magery or pots
