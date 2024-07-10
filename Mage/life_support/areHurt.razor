@@ -1,6 +1,6 @@
 //O' Shit Heal
 hotkey "Target Closest Non-Friendly Monster"
-if noto lasttarget = hostile or noto lasttarget = criminal and find lasttarget ground -1 -1 3
+if noto lasttarget = murderer or noto lasttarget = criminal and find lasttarget ground -1 -1 3
     if diffhits > 30
         if findtype "Yellow Potion" backpack
             hotkey 'Drink Heal'
