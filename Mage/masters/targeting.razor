@@ -7,9 +7,11 @@ if not varexist angryTarget and not varexist extraMode
     if noto angryTarget = hostile or noto angryTarget = criminal or noto angryTarget = enemy or noto angryTarget = murderer
         overhead 'Enemy'
     elseif noto angryTarget = innocent or noto angryTarget = friend
-        overhead 'Innocent' 
+        overhead 'Innocent, not targeting'
+        @unsetvar angryTarget
     else
-        overhead 'Something else'
+        overhead 'Something else, not targeting'
+        @unsetvar angryTarget
     endif
 elseif not targetexists 'harmful'
     hotkey 'Last Target'
