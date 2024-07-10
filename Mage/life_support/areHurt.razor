@@ -8,10 +8,14 @@ if noto lasttarget = hostile or noto lasttarget = criminal and find lasttarget g
         endif
     endif
     for 2
-        cast 'Heal'
-        waitfortarget 
-        target 'self'
-        wait 500
+        if diffhits > 12
+            cast 'Heal'
+            waitfortarget 
+            target 'self'
+            wait 500
+        else
+            brake
+        endif
     endfor
 endif
 
