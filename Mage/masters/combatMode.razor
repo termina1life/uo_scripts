@@ -3,7 +3,9 @@
 if varexist PKmode
     unsetvar! Pkmode
     overhead "Monster Mode"
+    warmode off
 else
     setvar! PKmode 1
     overhead "Player Mode"
+    warmode on
 endif
