@@ -1,0 +1,34 @@
+######################
+# Script Name: TimTank
+# Inventory Requirements
+#   - trap pouches (PK Evade)
+#   - bandages
+#   - heal potions
+#   - cure potions
+# DisArm Checker
+#  - You need to set two varibles in scripts (options)
+#       - MainWeapon
+#       - MainShield
+#
+######################
+## Primer Clearing list in case of modification
+@setvar twoHandedPreffered '1'
+#@setvar Shield_preferred '1'
+## End Primer
+if varexist debug
+    sysmsg 'caster.masters.master.razor.razor'
+    overhead 'caster.masters.master.razor.razor'
+endif
+
+
+
+
+##########Main Script##########
+while not dead
+    if rhandempty
+        script 'tank\arms\rearm'
+    endif
+    if hp < maxhp or poisoned or findbuff "bleed" or findbuff "disease" or paralyzed
+        script 'tank\life_support\lifeSupport'
+    endif
+endwhile

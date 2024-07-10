@@ -1,0 +1,20 @@
+if varexist debug
+    sysmsg 'caster.magery.offensiveRoutine.CurseManaDrain.razor'
+    overhead 'caster.magery.offensiveRoutine.CurseManaDrain.razor'
+endif
+
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
+cast 'curse'
+waitfortarget 
+target angryTarget 
+wait 500
+cast 'mana drain'
+waitfortarget 
+target angryTarget 
+wait 500
+if diffmana > 50
+    script 'Mage\utility\eatShrooms'
+endif

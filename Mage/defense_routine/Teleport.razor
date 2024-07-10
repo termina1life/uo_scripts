@@ -1,9 +1,0 @@
-if varexist debug
-    sysmsg 'Mage.defense_routine.Teleport.razor'
-    overhead 'Mage.defense_routine.Teleport.razor'
-endif
-if not cooldown Teleport
-    cast 'Teleport'
-    waitfortarget 
-    cooldown Teleport
-endif

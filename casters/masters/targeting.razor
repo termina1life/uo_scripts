@@ -1,0 +1,31 @@
+if varexist debug
+    sysmsg 'caster.masters.targeting.razor.razor'
+    overhead 'caster.masters.targeting.razor.razor'
+endif
+if varexist angryTarget
+    overhead "removing my target"
+    @unsetvar angryTarget
+endif
+if not varexist angryTarget and not varexist extraMode
+    setvar angryTarget
+    if noto angryTarget = hostile or noto angryTarget = criminal or noto angryTarget = enemy or noto angryTarget = murderer
+        overhead 'Enemy'
+    elseif noto angryTarget = innocent or noto angryTarget = friend
+        overhead 'Innocent, not targeting'
+        @unsetvar angryTarget
+    else
+        overhead 'Something else, not targeting'
+        @unsetvar angryTarget
+    endif
+elseif not targetexists 'harmful'
+    hotkey 'Last Target'
+    if not targetexists 'harmful'
+        if varexist PKmode
+            //Prioritize the closest PK
+            hotkey "Target Closest Non-Friendly Monster"
+        else
+            hotkey 'Target Closest Grey Monster'
+        endif
+        @setvar! angryTarget lasttarget
+    endif
+endif

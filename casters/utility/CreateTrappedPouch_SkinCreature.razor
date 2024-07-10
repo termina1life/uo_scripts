@@ -1,0 +1,24 @@
+if varexist debug
+    sysmsg 'caster.utility.CreateTrappedPouch_SkinCreature.razor'
+    overhead 'caster.utility.CreateTrappedPouch_SkinCreature.razor'
+endif
+
+if varexist PKmode
+    if findtype 'pouch' backpack 0
+        cast 'Magic Trap'
+        waitfortarget
+        target 'self'
+    else
+        overhead 'pouches all trapped'
+    endif
+elseif not varexist PKmode
+    if findtype 'Elven Spellblade' as x
+        dclick x
+        waitfortarget
+        target 'self'
+    else
+        overhead 'No skinning knife'
+    endif
+else
+    overhead 'CreateTrappedPouch_SkinCreature broken'
+endif

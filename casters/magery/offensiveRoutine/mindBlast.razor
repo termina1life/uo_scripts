@@ -1,0 +1,15 @@
+if varexist debug
+    sysmsg 'caster.magery.offensiveRoutine.MindBlast.razor'
+    overhead 'caster.magery.offensiveRoutine.MindBlast.razor'
+endif
+
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
+if varexist angryTarget
+    cast 'Mind Blast'
+    waitfortarget 
+    target angryTarget
+    wait 500
+endif

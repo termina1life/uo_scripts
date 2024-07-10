@@ -1,0 +1,31 @@
+if varexist debug
+    overhead 'caster.magery.offensiveRoutine.Tele_ThrowPurplePotion.razor'
+    sysmsg 'caster.magery.offensiveRoutine.Tele_ThrowPurplePotion.razor'
+endif
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
+if varexist PKmode
+    if findtype 'Purple Potion' backpack as pot
+        if not cooldown Telekinesis
+            cast 'Telekinesis'
+            waitfortarget 
+            target angryTarget
+            cooldown Telekinesis
+            wait 500
+        endif
+        dclick pot
+        waitfortarget 
+        #wait 3900
+        target angryTarget 
+        cooldown 'Purple Potion'
+    else
+        overhead 'No exploding potions'
+    endif
+    if diffmana > 50
+        script 'Mage\utility\eatShrooms'
+    endif
+else
+    overhead 'Not in PKmode'
+endif

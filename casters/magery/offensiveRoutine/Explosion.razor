@@ -1,0 +1,15 @@
+if varexist debug
+    overhead 'caster.magery.offensiveRoutine.Explosion.razor'
+    sysmsg 'caster.magery.offensiveRoutine.Explosion.razor'
+endif
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
+cast 'Explosion'
+waitfortarget 
+target angryTarget 
+wait 500
+if diffmana > 50
+    script 'Mage\utility\eatShrooms'
+endif

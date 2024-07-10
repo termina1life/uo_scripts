@@ -1,0 +1,20 @@
+if varexist debug
+    sysmsg 'caster.magery.defensiveRoutine.HealOther.razor'
+    overhead 'caster.magery.defensiveRoutine.HealOther.razor'
+endif
+@setvar! t
+if dead t   
+    #overhead 'res'
+    cast 'Resurrection'
+    waitfortarget
+    target t
+else 
+    #overhead 'heal'
+    cast 'Greater Heal'
+    waitfortarget
+    target t
+endif
+if diffmana > 50
+    script 'Mage\utility\eatShrooms'
+endif 
+ 

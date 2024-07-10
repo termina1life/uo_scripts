@@ -1,0 +1,14 @@
+if varexist debug
+    sysmsg 'caster.masters.extraMode.razor'
+    overhead 'caster.masters.extraMode.razor'
+endif
+// Set & Unset Extra Mode
+// set variable ExtraMode to true or false for use in other scripts
+// PKmode will Supersede extraMode, but can be used in conjuction in some cases
+if varexist extraMode
+    @unsetvar extraMode
+    overhead "extraMode Off"
+else
+    @setvar extraMode '1'
+    overhead "extraMode On"
+endif
