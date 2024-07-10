@@ -11,7 +11,7 @@ endif
 if not findbuff 'Protection'
     overhead 'Arch Protection needed'
 endif
-if not angryTarget
+if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
     script 'Mage\masters\targeting'
 endif
