@@ -1,0 +1,69 @@
+if not findbuff 'Magic Reflection'
+    overhead 'Magic Reflection needed'
+    cooldown MagicReflection
+endif
+if not findbuff 'Reactive Armor'
+    overhead 'Reactive Armor needed'
+endif
+if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
+    overhead 'Bless needed'
+endif
+if not findbuff 'Protection'
+    overhead 'Arch Protection needed'
+endif
+if not angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
+if not varexist PKmode
+    cast 'Lightning'
+    waitfortarget 
+    target angryTarget 
+    cooldown Lightning
+    wait 900
+    cast 'Fireball'
+    waitfortarget 
+    target angryTarget 
+    cooldown Fireball
+    wait 500
+    cast 'Harm'
+    waitfortarget 
+    target angryTarget 
+    cooldown Harm
+    wait 500
+    cast 'Magic Arrow'
+    waitfortarget 
+    target angryTarget 
+    cooldown MagicArrow
+    if diffmana > 50
+        script 'Mage\utility\eatShrooms'
+    endif
+elseif varexist PKmode
+    if not cooldown FirstCircle
+        cast 'Magic Arrow'
+        waitfortarget 
+        target angryTarget 
+        cooldown FirstCircle
+        wait 500
+    elseif not cooldown SecondCircle
+        cast 'Harm'
+        waitfortarget 
+        target angryTarget 
+        cooldown SecondCircle
+        wait 500
+    elseif not cooldown ThirdCircle
+        cast 'Fireball'
+        waitfortarget 
+        target angryTarget 
+        cooldown ThirdCircle
+        wait 500
+    else
+        cast 'Lightning'
+        waitfortarget 
+        target angryTarget
+        wait 900
+    endif
+    if diffmana > 50
+        script 'Mage\utility\eatShrooms'
+    endif
+endif

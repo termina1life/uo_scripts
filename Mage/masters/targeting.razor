@@ -1,18 +1,24 @@
-if varexist myTarget and varexist extraMode
+if varexist angryTarget and not varexist extraMode
     overhead "removing my target"
-    @unsetvar myTarget
-elseif not varexist myTarget and varexist extraMode 
-    overhead "set mytarget"
-    setvar myTarget
+    @unsetvar angryTarget
+elseif not varexist angryTarget and not varexist extraMode
+    setvar angryTarget
+    if noto angryTarget = hostile or noto angryTarget = criminal or noto angryTarget = enemy or noto angryTarget = murderer
+        overhead 'Enemy'
+    elseif noto angryTarget = innocent or noto angryTarget = friend
+        overhead 'Innocent' 
+    else
+        overhead 'Something else'
+    endif
 elseif not targetexists 'harmful'
     hotkey 'Last Target'
     if not targetexists 'harmful'
-        if varexist PkMode
+        if varexist Pkmode
             //Prioritize the closest PK
             hotkey "Target Closest Non-Friendly Monster"
         else
             hotkey 'Target Closest Grey Monster'
         endif
-        @setvar! myTarget lasttarget
+        @setvar! angryTarget lasttarget
     endif
 endif
