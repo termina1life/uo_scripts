@@ -1,3 +1,7 @@
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
 if varexist angryTarget
     cast 'Mind Blast'
     waitfortarget 

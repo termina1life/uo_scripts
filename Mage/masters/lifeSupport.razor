@@ -3,6 +3,26 @@
 # 2. CurePots = haveCurePots
 # 3. HealPots = haveHealPots
 ##
+overhead '-------------------'
+overhead 'Buff Support Status'
+overhead '-------------------'
+if not findbuff 'Magic Reflection'
+    overhead 'Magic Reflection needed'
+    cooldown MagicReflection
+endif
+if not findbuff 'Reactive Armor'
+    overhead 'Reactive Armor needed'
+endif
+if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
+    overhead 'Bless needed'
+endif
+if not findbuff 'Protection'
+    overhead 'Arch Protection needed'
+endif
+overhead '-------------------'
+overhead 'End Buff Support Status'
+overhead '-------------------'
+
 if varexist rebuild
     if varexist haveMagery
         @unsetvar haveMagery
