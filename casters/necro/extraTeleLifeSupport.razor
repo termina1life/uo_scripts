@@ -1,0 +1,10 @@
+if varexist debug
+    sysmsg 'casters\necro\extraTeleLifeSupport'
+    overhead 'casters\necro\extraTeleLifeSupport'
+endif
+
+if varexist extraMode
+    script 'casters\masters\lifeSupport'
+else
+    script 'casters\magery\defensiveRoutine\Teleport'
+endif
