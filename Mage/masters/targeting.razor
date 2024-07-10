@@ -1,9 +1,9 @@
-if extraMode and varexist myTarget
+if varexist myTarget and varexist extraMode
     overhead "removing my target"
-    @unsetvar! myTarget
-elseif
+    @unsetvar myTarget
+elseif not varexist myTarget and varexist extraMode 
     overhead "set mytarget"
-    setvar myTarget lasttarget
+    setvar myTarget
 elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
     hotkey 'Last Target'
     if not targetexists 'harmful'
@@ -13,5 +13,6 @@ elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
         else
             hotkey 'Target Closest Grey Monster'
         endif
+        @setvar! myTarget lasttarget
     endif
 endif
