@@ -1,39 +1,23 @@
-#if paralyzed
-#    hotkey 'Play Script: AgentTwo\Defense\TriggerTrappedPouch'
-#endif
-if not findbuff 'Magic Reflection'
-    overhead 'Magic Reflection needed'
-    cooldown MagicReflection
-endif
-if not findbuff 'Reactive Armor'
-    overhead 'Reactive Armor needed'
-endif
-if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
-    overhead 'Bless needed'
-endif
-if not findbuff 'Protection'
-    overhead 'Arch Protection needed'
-endif
 
 if not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
     hotkey 'Last Target'
     if not targetexists 'harmful'
         if varexist PkMode
             //Prioritize the closest PK
+            cast 'Mind Blast'
+            waitfortarget 
             hotkey "Target Closest Non-Friendly Monster"
             wait 500
         else
+            cast 'Mind Blast'
+            waitfortarget 
             hotkey 'Target Closest Grey Monster'
             wait 500
         endif
     endif
-endif
-if targetexists 'harmful'
+else
     cast 'Mind Blast'
     waitfortarget 
     hotkey 'Last Target'
+    wait 500
 endif
-## Add Shroom later
-#if diffmana > 50
-#    hotkey 'Play Script: AgentTwo\Defense\Eat Shroom'
-#endif 
