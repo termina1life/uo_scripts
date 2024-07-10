@@ -1,15 +1,15 @@
 if varexist debug
-    overhead 'caster.magery.offensiveRoutine.EnergyBolt.razor'   
-    sysmsg 'caster.magery.offensiveRoutine.EnergyBolt.razor'
+    overhead 'casters.magery.offensiveRoutine.EnergyBolt.razor'   
+    sysmsg 'casters.magery.offensiveRoutine.EnergyBolt.razor'
 endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
-    script 'Mage\masters\targeting'
+    script 'casters\masters\targeting'
 endif
 cast 'Energy Bolt'
 waitfortarget 
 target angryTarget 
 wait 500
 if diffmana > 50
-    script 'Mage\utility\eatShrooms'
+    script 'casters\utility\eatShrooms'
 endif

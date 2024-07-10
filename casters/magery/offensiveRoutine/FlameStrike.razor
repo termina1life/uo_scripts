@@ -1,0 +1,15 @@
+if varexist debug
+    sysmsg 'casters.magery.offensiveRoutine.FlameStrike.razor'
+    overhead 'casters.magery.offensiveRoutine.FlameStrike.razor'
+endif
+
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'casters\masters\targeting'
+endif
+if varexist angryTarget
+    cast 'Flamestrike'
+    waitfortarget 
+    target angryTarget
+    wait 500
+endif

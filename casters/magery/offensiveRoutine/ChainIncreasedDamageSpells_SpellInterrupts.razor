@@ -1,10 +1,10 @@
 if varexist debug
-    sysmsg 'caster.magery.offensiveRoutine.ChainIncreasedDamageSpells_SpellInterrupts.razor'
-    overhead 'caster.magery.offensiveRoutine.ChainIncreasedDamageSpells_SpellInterrupts.razor'
+    sysmsg 'casters.magery.offensiveRoutine.ChainIncreasedDamageSpells_SpellInterrupts.razor'
+    overhead 'casters.magery.offensiveRoutine.ChainIncreasedDamageSpells_SpellInterrupts.razor'
 endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
-    script 'Mage\masters\targeting'
+    script 'casters\masters\targeting'
 endif
 if not varexist PKmode
     cast 'Lightning'
@@ -55,6 +55,6 @@ elseif varexist PKmode
         wait 900
     endif
     if diffmana > 50
-        script 'Mage\utility\eatShrooms'
+        script 'casters\utility\eatShrooms'
     endif
 endif
