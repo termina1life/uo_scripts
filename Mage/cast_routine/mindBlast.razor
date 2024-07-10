@@ -1,6 +1,4 @@
-if varexist myTarget
-    overhead 'Already have a target!'
-elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
+if not varexist myTarget and targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
     hotkey 'Last Target'
     if not targetexists 'harmful'
         if varexist PkMode
@@ -12,6 +10,7 @@ elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
         @setvar! myTarget lasttarget
     endif
 endif
+
 if varexist myTarget
     cast 'Mind Blast'
     waitfortarget 
