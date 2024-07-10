@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<cooldowns>
+	<cooldownentry name="mushroom" defaultcooldown="60" cooldownbartype="Regular" hue="73" pauseduringworldsaves="True" hidewheninactive="False">
+		<trigger triggertype="SysMessage" duration="" triggertext="You consume a magic mushroom" />
+	</cooldownentry>
+	<cooldownentry name="Fireball" defaultcooldown="40" cooldownbartype="Regular" hue="88" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="Harm" defaultcooldown="40" cooldownbartype="Regular" hue="88" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="MagicArrow" defaultcooldown="40" cooldownbartype="Regular" hue="88" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="Lightning" defaultcooldown="40" cooldownbartype="Regular" hue="88" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="skill" defaultcooldown="0" cooldownbartype="Regular" hue="88" pauseduringworldsaves="True" hidewheninactive="True">
+		<trigger triggertype="SysMessage" duration="2" triggertext="Whom shall I examine?" />
+		<trigger triggertype="SysMessage" duration="2" triggertext="What creature would you like to examine?" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="Tame which animal?" />
+		<trigger triggertype="SysMessage" duration="2" triggertext="What item do you wish to get information about?" />
+		<trigger triggertype="SysMessage" duration="2" triggertext="Whom do you wish to beg from, recruit, or motivate?" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="Where will you search?" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="You are not certain what lies hidden nearby." />
+		<trigger triggertype="SysMessage" duration="2" triggertext="What would you like to evaluate?" />
+		<trigger triggertype="OverheadMessage" duration="2" triggertext="mental strength" />
+		<trigger triggertype="OverheadMessage" duration="2" triggertext="cannot quite judge" />
+		<trigger triggertype="OverheadMessage" duration="10" triggertext="You fail to hide" />
+		<trigger triggertype="OverheadMessage" duration="10" triggertext="You have hidden yourself well" />
+		<trigger triggertype="SysMessage" duration="2" triggertext="You focus your follower's aggression towards the target" />
+		<trigger triggertype="SysMessage" duration="2" triggertext="You fail to focus your follower's agression" />
+		<trigger triggertype="SysMessage" duration="1" triggertext="What do you wish to appraise and identify?" />
+		<trigger triggertype="SysMessage" duration="1" triggertext="You are not certain" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="You are at peace" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="You enter a meditative trance." />
+		<trigger triggertype="SysMessage" duration="2" triggertext="You establish contact with the netherworld." />
+		<trigger triggertype="SysMessage" duration="2" triggertext="You fail your attempt at contacting the netherworld." />
+		<trigger triggertype="SysMessage" duration="1" triggertext="What food, potion, or player would you like to inspect. Target the ground to scavenge for herbs." />
+		<trigger triggertype="SysMessage" duration="1" triggertext="It appears to be devoid of any form of poison" />
+		<trigger triggertype="SysMessage" duration="1" triggertext="You are uncertain as to the safety of this food item." />
+		<trigger triggertype="OverheadMessage" duration="10" triggertext="You gather a handful of plants and fashion an herbal poultice" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="You are unable to find any useful plants nearby." />
+		<trigger triggertype="SysMessage" duration="5" triggertext="What do you wish to track?" />
+		<trigger triggertype="SysMessage" duration="10" triggertext="You begin to move quietly." />
+	</cooldownentry>
+	<cooldownentry name="Telekinesis" defaultcooldown="60" cooldownbartype="Regular" hue="223" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="Purple Potion" defaultcooldown="15" cooldownbartype="Regular" hue="18" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="FirstCircle" defaultcooldown="5" cooldownbartype="Regular" hue="38" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="SecondCircle" defaultcooldown="5" cooldownbartype="Regular" hue="38" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="ThirdCircle" defaultcooldown="5" cooldownbartype="Regular" hue="38" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="MagicReflection" defaultcooldown="30" cooldownbartype="Regular" hue="48" pauseduringworldsaves="True" hidewheninactive="False" />
+	<cooldownentry name="Teleport" defaultcooldown="15" cooldownbartype="Regular" hue="53" pauseduringworldsaves="True" hidewheninactive="False" />
+</cooldowns>

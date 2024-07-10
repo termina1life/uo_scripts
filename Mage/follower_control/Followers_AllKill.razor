@@ -1,0 +1,8 @@
+if not varexist angryTarget
+    overhead 'No angryTarget set, calling Targeting.'
+    script 'Mage\masters\targeting'
+endif
+say 'all kill'
+waitfortarget 
+target angryTarget
+script 'Mage\masters\lifeSupport'

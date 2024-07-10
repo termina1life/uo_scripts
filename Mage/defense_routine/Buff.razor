@@ -1,0 +1,27 @@
+if not findbuff 'Strength' or not findbuff 'Cunning' or not findbuff 'Agility'
+    cast 'Bless'
+    waitfortarget
+    target 'self'
+    wait 1000
+endif
+if not findbuff 'Protection'
+    cast 'Arch Protection'
+    waitfortarget
+    target 'self'
+    wait 1000
+endif
+if not findbuff 'Magic Reflection'
+    cast 'Magic Reflection'
+    waitfortarget 
+    target 'self'
+    wait 1000
+    overhead 'PVPMagicReflection'
+endif
+if not findbuff 'Reactive Armor'
+    cast 'Reactive Armor'
+    waitfortarget 
+    target 'self'
+endif
+if diffmana > 50
+    script 'Mage\utility\eatShrooms'
+endif
