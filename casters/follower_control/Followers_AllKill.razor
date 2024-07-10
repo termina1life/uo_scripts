@@ -1,6 +1,6 @@
 if varexist debug
-    sysmsg 'Mage.follower_control.Followers_AllKill.razor'
-    overhead 'Mage.follower_control.Followers_AllKill.razor'
+    sysmsg 'casters.follower_control.Followers_AllKill.razor'
+    overhead 'casters.follower_control.Followers_AllKill.razor'
 endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
@@ -9,4 +9,4 @@ endif
 say 'all kill'
 waitfortarget 
 target angryTarget
-script 'Mage\masters\lifeSupport'
+script 'casters\masters\lifeSupport'
