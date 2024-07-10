@@ -1,4 +1,6 @@
-if not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
+if extraMode
+    setvar myTarget
+elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
     hotkey 'Last Target'
     if not targetexists 'harmful'
         if varexist PkMode
