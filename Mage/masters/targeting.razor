@@ -4,7 +4,7 @@ if varexist myTarget and varexist extraMode
 elseif not varexist myTarget and varexist extraMode 
     overhead "set mytarget"
     setvar myTarget
-elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
+elseif not targetexists 'harmful'
     hotkey 'Last Target'
     if not targetexists 'harmful'
         if varexist PkMode
