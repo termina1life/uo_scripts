@@ -1,23 +1,20 @@
-
+clearall
 if not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
     hotkey 'Last Target'
     if not targetexists 'harmful'
         if varexist PkMode
             //Prioritize the closest PK
-            cast 'Mind Blast'
-            waitfortarget 
             hotkey "Target Closest Non-Friendly Monster"
-            wait 500
         else
-            cast 'Mind Blast'
-            waitfortarget 
             hotkey 'Target Closest Grey Monster'
-            wait 500
         endif
+        @setvar! myTarget lasttarget
     endif
-else
+endif
+
+if varexist myTarget
     cast 'Mind Blast'
     waitfortarget 
-    hotkey 'Last Target'
+    target myTarget
     wait 500
 endif
