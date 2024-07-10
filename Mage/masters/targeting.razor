@@ -1,5 +1,9 @@
-if extraMode
-    setvar myTarget
+if extraMode and varexist myTarget
+    overhead "removing my target"
+    @unsetvar! setvar myTarget
+elseif
+    overhead "set mytarget"
+    setvar myTarget lasttarget
 elseif not targetexists 'harmful' #['any'/'beneficial'/'harmful'/'neutral']
     hotkey 'Last Target'
     if not targetexists 'harmful'
