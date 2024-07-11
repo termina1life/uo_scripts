@@ -1,0 +1,216 @@
+# One hotkey mage cycle, nox, poison by Jaseowns
+# UO Outlands - https://youtu.be/K3bVPhHcInE
+# 
+# Cooldowns are live, so this script now attempts to display those
+# Make cooldowns match the names of skills 
+# (check out for details: https://youtu.be/s8rRk2Bu1jQ)
+#
+// 12/11/2022
+// - Added Necro symbol count and additional necro spells (blood oath, pain spike)
+// - Added cast triggers for all the spells
+// - Added Necro wither to summon (if correct necro skill)
+// 12/10/2022 
+// - If you kill a mob and are low mana, we now target the next one and send the pets while med
+// 12/9/2022 
+// - Added discordance checks
+// - Added mushroom usage throughout the script 
+// - Better summoning of pets when they die
+// - Added customized spam cooldown to prevent overhead spam
+// - Make sure herding goes off
+// November
+// - Add heal to top of script during search of target 
+// - made a way to skip certain casts
+// 
+##################
+## Always room for improvment, thanks for watching!
+############
+
+# Set this to one, if you want to cast poison once no matter what
+# If you have 100 poisoning and want Lethal, set this to 0
+@setvar! castPoisonAnyway 0
+
+# We will spam mind blast when other skills are on cooldown
+# If you set this to 0 it will use flamestrike
+# If you set this to 1 it will use mind blast
+# If you set this to 2 it will alternate between the two
+@setvar! spamMindBlastOverFlamestrike 2
+
+# This will auto replay this script if you want it too
+@setvar! autoBotEnabled 1
+
+# Update this variable to 1 for ALL KILL
+# Update this variable to 0 for target nearest
+@setvar! setThisAsOneIfYouWantToTargetYourOwnKillOrItWillTargetClosestMonster 0
+
+###############
+###  Choose your spells
+######
+@setvar! castCurse 1
+@setvar! castManadrain 1
+@setvar! castLightning 1
+@setvar! castFireball 1
+@setvar! castHarm 1
+@setvar! castMagicArrow 1
+
+### Buffs
+@setvar! castBless 1
+@setvar! castMagicShield 1
+@setvar! castReactiveArmor 1
+# Drink Magic resist potion (only if magic shield buff not found)
+@setvar! drinkMagicResistPot 1 
+
+###############
+###  Choose your necro spells (ignored if less then required necro skill)
+######
+@setvar! castEvilOmen 1
+@setvar! castCorpseSkin 1
+@setvar! castVampiricEmbrace 0
+@setvar! castMindRot 1
+@setvar! castBloodOath 0
+@setvar! castPainSpike 1
+
+###############
+### Edit these cooldowns to match your wizard grimoire
+######
+@setvar! canYouMakeAMushroom 1
+@setvar! cdLightning 20000
+@setvar! cdMagicArrow 20000
+@setvar! cdHarm 20000
+@setvar! cdFireball 20000
+
+###############
+### Necro Cooldowns
+######
+@setvar! cdEvilOmen 31000
+@setvar! cdVampiricEmbrace 31000
+@setvar! cdCorpseSkin 31000
+@setvar! cdMindRot 31000
+@setvar! cdWither 31000
+@setvar! cdVengefulSpirit 31000
+@setvar! cdBloodOath 31000
+@setvar! cdPainSpike 61000
+
+#### Buff Cooldowns
+@setvar! cdMushroom 60000
+@setvar! cdMagicShield 60000
+@setvar! cdReactiveArmor 60000
+@setvar! cdMeditation 10000
+@setvar! cdMeditationMini 3000
+@setvar! cdKillTarget 60000
+
+#### Random cooldowns
+@setvar! cdPreventOverheadSpam 2000
+
+#### Pet Names, unique to you
+if not listexists petNameList
+    createlist petNameList
+endif
+if list petNameList = 0
+    pushlist petNameList "Frank"
+    pushlist petNameList "Beans"
+    pushlist petNameList "Pogo"
+    pushlist petNameList "Gin"
+    pushlist petNameList "Juice"
+    pushlist petNameList "Bisquic"
+endif
+
+
+if not timerexists reactiveArmorTimer
+    createtimer reactiveArmorTimer
+    settimer reactiveArmorTimer cdMagicShield
+endif
+
+if not timerexists magicShieldTimer
+    createtimer magicShieldTimer
+    settimer magicShieldTimer cdMagicShield
+endif
+
+if not timerexists magicMushroomTimer
+    createtimer magicMushroomTimer
+    settimer magicMushroomTimer cdMushroom
+endif
+
+if not timerexists magicArrowTimer
+    createtimer magicArrowTimer
+    settimer magicArrowTimer cdMagicArrow
+endif
+
+if not timerexists lightningTimer
+    createtimer lightningTimer
+    settimer lightningTimer cdLightning
+endif
+
+if not timerexists harmTimer
+    createtimer harmTimer
+    settimer harmTimer cdHarm
+endif
+
+if not timerexists fireballTimer
+    createtimer fireballTimer
+    settimer fireballTimer cdFireball
+endif
+
+if not timerexists evilOmenTimer
+    createtimer evilOmenTimer
+    settimer evilOmenTimer cdEvilOmen
+endif
+
+if not timerexists vampiricEmbraceTimer
+    createtimer vampiricEmbraceTimer
+    settimer vampiricEmbraceTimer cdVampiricEmbrace
+endif
+
+if not timerexists corpseSkinTimer
+    createtimer corpseSkinTimer
+    settimer corpseSkinTimer cdCorpseSkin
+endif
+
+if not timerexists mindRotTimer
+    createtimer mindRotTimer
+    settimer mindRotTimer cdMindRot
+endif
+
+if not timerexists meditiationTimer
+    createtimer meditiationTimer
+    settimer meditiationTimer cdMeditation
+endif
+
+if not timerexists killTargetTimer
+    createtimer killTargetTimer
+    settimer killTargetTimer cdKillTarget
+endif
+
+if not timerexists witherTimer
+    createtimer witherTimer
+    settimer witherTimer cdWither
+endif
+
+if not timerexists vengefulSpiritTimer
+    createtimer vengefulSpiritTimer
+    settimer vengefulSpiritTimer cdVengefulSpirit
+endif
+
+if not timerexists bloodOathTimer
+    createtimer bloodOathTimer
+    settimer bloodOathTimer cdBloodOath
+endif
+
+if not timerexists painSpikeTimer
+    createtimer painSpikeTimer
+    settimer painSpikeTimer cdPainSpike
+endif
+
+if not timerexists preventOverheadSpamTimer
+    createtimer preventOverheadSpamTimer
+    settimer preventOverheadSpamTimer cdPreventOverheadSpam
+endif
+
+if not varexist myEarthPet
+    @setvar! myEarthPet 1
+endif
+if not varexist myWaterPet
+    @setvar! myWaterPet 0
+endif
+if not varexist mySummonAnimalPet
+    @setvar! mySummonAnimalPet 0
+endif

@@ -1,0 +1,158 @@
+if diffhits < 30
+    if followers = 0
+        @setvar! followCount 0
+    elseif followers = 1
+        @setvar! followCount 1
+    elseif followers = 2
+        @setvar! followCount 2
+    elseif followers = 3
+        @setvar! followCount 3
+    elseif followers = 4
+        @setvar! followCount 4
+    elseif followers = 5
+        @setvar! followCount 5
+    endif
+    if dead myEarthPet or not find myEarthPet ground -1 -1 12
+        if followers < 4
+            while mana < 50
+                if diffhits >= 30
+                    replay
+                endif
+                if timer preventOverheadSpamTimer >= cdPreventOverheadSpam
+                    overhead "waiting for mana" 88
+                    settimer preventOverheadSpamTimer 0
+                endif
+                if not findbuff "Actively Meditating"
+                    useskill "meditation"
+                endif
+                wait 200
+            endwhile
+            if skill "Necromancy" >= 50 and timer vengefulSpiritTimer >= cdVengefulSpirit
+                yell "[VengefulSpirit"
+                settimer vengefulSpiritTimer 0
+                wait 500
+            endif
+            while followers = followCount
+                cast "earth elemental"
+                wait 500
+                if skill "Necromancy" >= 90 and timer witherTimer >= cdWither
+                    yell "[Wither"
+                    settimer witherTimer 0
+                endif
+                if diffhits >= 30
+                    hotkey '> Interrupt'
+                    replay
+                    break
+                endif
+            endwhile
+            // 158 - an ancient mummy
+            if findtype 158 ground -1 -1 6 as myPet
+                if noto myPet = "friend" and list petNameList > 0
+                    overhead "Renaming..."
+                    foreach petName in petNameList
+                        rename myPet petName
+                        break
+                    endfor
+                    poplist petNameList "front"
+                endif
+                @setvar! myEarthPet myPet
+                say "all guard me"
+                replay
+            endif
+        endif
+    endif
+endif
+
+if diffhits < 30
+    if followers = 0
+        @setvar! followCount 0
+    elseif followers = 1
+        @setvar! followCount 1
+    elseif followers = 2
+        @setvar! followCount 2
+    elseif followers = 3
+        @setvar! followCount 3
+    elseif followers = 4
+        @setvar! followCount 4
+    elseif followers = 5
+        @setvar! followCount 5
+    endif
+    if dead myWaterPet or not find myWaterPet ground -1 -1 12
+        if followers < 4
+            while mana < 50
+                if diffhits >= 30
+                    replay
+                endif
+                if timer preventOverheadSpamTimer >= cdPreventOverheadSpam
+                    overhead "waiting for mana" 88
+                    settimer preventOverheadSpamTimer 0
+                endif
+                if not findbuff "Actively Meditating"
+                    useskill "meditation"
+                endif
+                wait 200
+            endwhile
+            if timer vengefulSpiritTimer >= cdVengefulSpirit
+                yell "[VengefulSpirit"
+                settimer vengefulSpiritTimer 0
+                wait 500
+            endif
+            while followers = followCount
+                cast "fire elemental"
+                wait 500
+                if timer witherTimer >= cdWither
+                    yell "[Wither"
+                    settimer witherTimer 0
+                endif
+                if diffhits >= 30
+                    hotkey '> Interrupt'
+                    break
+                endif
+            endwhile
+            // 24 - a lich
+            if findtype 24 ground -1 -1 6 as myPet
+                if noto myPet = "friend" and list petNameList > 0
+                    overhead "Renaming..."
+                    foreach petName in petNameList
+                        rename myPet petName
+                        break
+                    endfor
+                    poplist petNameList "front"
+                endif
+                @setvar! myWaterPet myPet
+                say "all guard me"
+                replay
+            endif
+        endif
+    endif
+endif
+
+if followers = 4 and diffhits < 30
+    while mana < 14
+        if timer preventOverheadSpamTimer >= cdPreventOverheadSpam
+            overhead "waiting for mana" 88
+            settimer preventOverheadSpamTimer 0
+        endif
+        if diffhits >= 30
+            replay
+        endif
+        if not findbuff "Actively Meditating"
+            useskill "meditation"
+        endif
+        wait 200
+    endwhile
+    if timer vengefulSpiritTimer >= cdVengefulSpirit
+        yell "[VengefulSpirit"
+        settimer vengefulSpiritTimer 0
+        wait 200
+    endif
+    while followers = followCount
+        cast 'Summ. Creature'
+        wait 500
+        if diffhits >= 30
+            hotkey '> Interrupt'
+            replay
+        endif
+    endwhile        
+    say "all guard me"
+endif

@@ -1,10 +1,10 @@
 if varexist debug
-    overhead 'caster.magery.offensiveRoutine.Tele_ThrowPurplePotion.razor'
-    sysmsg 'caster.magery.offensiveRoutine.Tele_ThrowPurplePotion.razor'
+    overhead 'casters.magery.offensiveRoutine.Tele_ThrowPurplePotion.razor'
+    sysmsg 'casters.magery.offensiveRoutine.Tele_ThrowPurplePotion.razor'
 endif
 if not varexist angryTarget
     overhead 'No angryTarget set, calling Targeting.'
-    script 'Mage\masters\targeting'
+    script 'casters\masters\targeting'
 endif
 if varexist PKmode
     if findtype 'Purple Potion' backpack as pot
@@ -24,7 +24,7 @@ if varexist PKmode
         overhead 'No exploding potions'
     endif
     if diffmana > 50
-        script 'Mage\utility\eatShrooms'
+        script 'casters\utility\eatShrooms'
     endif
 else
     overhead 'Not in PKmode'
